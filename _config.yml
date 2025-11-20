@@ -1,0 +1,53 @@
+# Site settings
+title: ESUH Economics Research
+description: Economics research portfolio by Isaac and Serena
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Author information
+authors:
+  isaac:
+    name: Isaac
+    bio: Economics researcher at the University of Houston
+  serena:
+    name: Serena
+    bio: Economics researcher at the University of Houston
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  research:
+    output: true
+    permalink: /research/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "research"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

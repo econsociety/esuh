@@ -1,0 +1,61 @@
+---
+layout: home
+title: Home
+---
+
+<div class="home-hero">
+  <h1>ESUH Economics Research</h1>
+  <p>Exploring economic questions through rigorous research and analysis</p>
+  <a href="{{ '/research.html' | relative_url }}" class="cta-button">Browse Research</a>
+</div>
+
+<section class="home-section">
+  <h2>Welcome</h2>
+  <p>
+    Welcome to the ESUH Economics Research portfolio, a collection of research papers and working papers
+    by economics students Isaac and Serena at the University of Houston. This platform serves as a
+    centralized archive for our research across various topics in economics.
+  </p>
+  <p>
+    Our research spans multiple areas of economics, including labor economics, macroeconomics,
+    development economics, and more. Each paper reflects our commitment to rigorous analysis
+    and evidence-based conclusions.
+  </p>
+</section>
+
+<section class="home-section">
+  <h2>Recent Research</h2>
+  <div class="research-list">
+    {% assign recent_research = site.research | sort: 'date' | reverse | limit: 3 %}
+    {% for research in recent_research %}
+    <div class="research-item">
+      <h3><a href="{{ research.url | relative_url }}">{{ research.title }}</a></h3>
+      {% if research.subtitle %}
+      <p class="subtitle">{{ research.subtitle }}</p>
+      {% endif %}
+      <div class="research-meta">
+        <span class="author">By {{ research.author }}</span>
+        <span class="divider">|</span>
+        <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
+        {% if research.topic %}
+        <span class="divider">|</span>
+        <span class="topic">{{ research.topic }}</span>
+        {% endif %}
+      </div>
+      {% if research.excerpt %}
+      <p class="research-excerpt">{{ research.excerpt }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section">
+  <h2>About the Project</h2>
+  <p>
+    This portfolio represents the collaborative effort of ESUH (Economics Students at the University of Houston)
+    to conduct meaningful research and contribute to the broader economics community. Learn more about our
+    <a href="{{ '/about-team.html' | relative_url }}">research team</a> and the
+    <a href="{{ '/about-esuh.html' | relative_url }}">ESUH organization</a>.
+  </p>
+</section>

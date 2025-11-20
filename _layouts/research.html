@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="container">
+  <article class="research-content">
+    <header class="research-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+
+      <div class="research-meta">
+        <span class="author">By {{ page.author }}</span>
+        <span class="divider">|</span>
+        <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.topic %}
+        <span class="divider">|</span>
+        <span class="topic">{{ page.topic }}</span>
+        {% endif %}
+        {% if page.working_paper %}
+        <span class="divider">|</span>
+        <span class="working-paper">Working Paper{% if page.installment %} - Installment {{ page.installment }}{% endif %}</span>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="research-body">
+      {{ content }}
+    </div>
+
+    {% if page.citations %}
+    <footer class="research-footer">
+      <h2>References</h2>
+      <ol class="citations">
+        {% for citation in page.citations %}
+        <li>{{ citation }}</li>
+        {% endfor %}
+      </ol>
+    </footer>
+    {% endif %}
+  </article>
+</div>

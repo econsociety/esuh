@@ -1,0 +1,65 @@
+---
+layout: page
+title: Research Archive
+subtitle: Browse all research papers and working papers
+---
+
+<div class="research-filter">
+  <div class="filter-group">
+    <label for="topic-filter">Filter by Topic:</label>
+    <select id="topic-filter">
+      <option value="">All Topics</option>
+      {% assign topics = site.research | map: 'topic' | uniq | sort %}
+      {% for topic in topics %}
+        {% if topic %}
+        <option value="{{ topic }}">{{ topic }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="search-input">Search:</label>
+    <input type="text" id="search-input" placeholder="Search by title or author...">
+  </div>
+</div>
+
+<div class="research-list">
+  {% assign sorted_research = site.research | sort: 'date' | reverse %}
+  {% for research in sorted_research %}
+  <div class="research-item"
+       data-topic="{{ research.topic }}"
+       data-title="{{ research.title | downcase }}"
+       data-author="{{ research.author | downcase }}">
+    <h3><a href="{{ research.url | relative_url }}">{{ research.title }}</a></h3>
+
+    {% if research.subtitle %}
+    <p class="subtitle">{{ research.subtitle }}</p>
+    {% endif %}
+
+    <div class="research-meta">
+      <span class="author">By {{ research.author }}</span>
+      <span class="divider">|</span>
+      <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
+      {% if research.topic %}
+      <span class="divider">|</span>
+      <span class="topic">{{ research.topic }}</span>
+      {% endif %}
+      {% if research.working_paper %}
+      <span class="divider">|</span>
+      <span class="working-paper">Working Paper{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
+      {% endif %}
+    </div>
+
+    {% if research.excerpt %}
+    <p class="research-excerpt">{{ research.excerpt }}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% if site.research.size == 0 %}
+<p style="text-align: center; color: #666; padding: 3rem 0;">
+  No research papers have been published yet. Check back soon!
+</p>
+{% endif %}

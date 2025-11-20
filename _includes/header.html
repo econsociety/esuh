@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="site-title">
+        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+        <a href="{{ '/about-team.html' | relative_url }}" {% if page.url == '/about-team.html' %}class="active"{% endif %}>About the Team</a>
+        <a href="{{ '/about-esuh.html' | relative_url }}" {% if page.url == '/about-esuh.html' %}class="active"{% endif %}>About ESUH</a>
+        <a href="{{ '/research.html' | relative_url }}" {% if page.url == '/research.html' or page.layout == 'research' %}class="active"{% endif %}>Research</a>
+      </nav>
+    </div>
+  </div>
+</header>
