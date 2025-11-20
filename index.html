@@ -19,6 +19,49 @@ title: Home
 </section>
 
 <section class="home-section">
+  <h2>Recent Research</h2>
+  {% assign recent_research = site.research | sort: 'date' | reverse | limit: 2 %}
+  {% if recent_research.size > 0 %}
+  <div class="research-list">
+    {% for research in recent_research %}
+    <div class="research-item">
+      <h3><a href="{{ research.url | relative_url }}">{{ research.title }}</a></h3>
+
+      {% if research.subtitle %}
+      <p class="subtitle">{{ research.subtitle }}</p>
+      {% endif %}
+
+      <div class="research-meta">
+        <span class="author">By {{ research.author }}</span>
+        <span class="divider">|</span>
+        <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
+        {% if research.topic %}
+        <span class="divider">|</span>
+        <span class="topic">{{ research.topic }}</span>
+        {% endif %}
+        {% if research.working_paper %}
+        <span class="divider">|</span>
+        <span class="working-paper">Working Paper{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
+        {% endif %}
+      </div>
+
+      {% if research.excerpt %}
+      <p class="research-excerpt">{{ research.excerpt }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <p style="text-align: center; margin-top: 2rem;">
+    <a href="/esuh-research/research" style="color: var(--primary-color); font-weight: 600;">View all research →</a>
+  </p>
+  {% else %}
+  <p style="color: var(--text-secondary);">
+    No research papers have been published yet. Check back soon!
+  </p>
+  {% endif %}
+</section>
+
+<section class="home-section">
   <h2>About the Project</h2>
   <p>
     This portfolio represents the collaborative effort of ESUH (Economics Students at the University of Houston)
