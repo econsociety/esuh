@@ -13,7 +13,7 @@ citations:
   - "Stinebrickner, R., & Stinebrickner, T. R. (2003). Working during school and academic performance. _Journal of Labor Economics_, _21_(2), 473–491. [https://doi.org/10.1086/345565](https://doi.org/10.1086/345565)"
 ---
 
-![University of Houston](/assets/images/university-of-houston.png)
+![University of Houston]({{ '/assets/images/university-of-houston.png' | relative_url }})
 
 #### Introduction
 As the Fall 2025 semester draws to a close, finals week looms over students at the University of Houston and beyond. Students likely face stress of back-to-back exams as well as balancing studying with work or other commitments. This collection of economic research highlights that the structure of finals week does impact students’ performance on exams. Additionally, the tradeoffs for working students are quantified and analyzed.
