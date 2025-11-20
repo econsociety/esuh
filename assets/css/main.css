@@ -295,6 +295,16 @@ a:hover {
   text-align: justify;
 }
 
+.research-body img,
+.page-body img {
+  max-width: 100%;        /* Prevents images from exceeding container width */
+  height: auto;            /* Maintains aspect ratio */
+  display: block;          /* Makes centering work */
+  margin: 2rem auto;       /* Centers image and adds vertical spacing */
+  border-radius: 8px;      /* Rounded corners for modern look */
+  box-shadow: var(--shadow-md); /* Subtle shadow for depth */
+}
+
 /* Tables */
 table {
   width: 100%;
