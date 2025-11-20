@@ -1,8 +1,9 @@
-
 ---
 title: "The Economics of Finals Week"
+subtitle: "How exam scheduling and work hours impact student performance"
 author: Isaac Turner
-date: 2024-11-18
+date: 2025-11-18
+excerpt: "Research shows that exam spacing and working hours significantly impact student performance. This analysis explores how finals week structure affects outcomes and what students can do to optimize their performance."
 topic: Final Exam Performance
 citations:
   - "DeSimone, J. S. (2008, May 15). _The impact of employment during school on college student academic performance_. NBER. [http://www.nber.org/papers/w14006](http://www.nber.org/papers/w14006)"
