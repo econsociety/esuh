@@ -1,6 +1,6 @@
 # Site settings
-title: ESUH Economics Research
-description: Economics research portfolio by Isaac and Serena
+title: ESUH Research
+description: Economics research portfolio
 baseurl: "/esuh-research" # the subpath of your site, e.g. /blog
 url: "https://isaacturner-uh.github.io" # the base hostname & protocol for your site
 

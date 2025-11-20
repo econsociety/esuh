@@ -4,7 +4,7 @@ subtitle: "How exam scheduling and work hours impact student performance"
 author: Isaac Turner
 date: 2025-11-18
 excerpt: "Research shows that exam spacing and working hours significantly impact student performance. This analysis explores how finals week structure affects outcomes and what students can do to optimize their performance."
-topic: Final Exam Performance
+topic: Education
 citations:
   - "DeSimone, J. S. (2008, May 15). _The impact of employment during school on college student academic performance_. NBER. [http://www.nber.org/papers/w14006](http://www.nber.org/papers/w14006)"
   - "Goulas, S., & Megalokonomou, R. (2020). Marathon, hurdling, or Sprint? the effects of exam scheduling on academic performance. _The B.E. Journal of Economic Analysis & Policy_, _20_(2). [https://doi.org/10.1515/bejeap-2019-0177](https://doi.org/10.1515/bejeap-2019-0177)"
@@ -13,7 +13,8 @@ citations:
   - "Stinebrickner, R., & Stinebrickner, T. R. (2003). Working during school and academic performance. _Journal of Labor Economics_, _21_(2), 473–491. [https://doi.org/10.1086/345565](https://doi.org/10.1086/345565)"
 ---
 
-## The Economics of Finals Week
+![University of Houston]({{ '/assets/images/university-of-houston.png' | relative_url }})
+
 #### Introduction
 As the Fall 2025 semester draws to a close, finals week looms over students at the University of Houston and beyond. Students likely face stress of back-to-back exams as well as balancing studying with work or other commitments. This collection of economic research highlights that the structure of finals week does impact students’ performance on exams. Additionally, the tradeoffs for working students are quantified and analyzed.
 
