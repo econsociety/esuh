@@ -60,7 +60,7 @@ h2 {
   font-size: 2rem;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--medium-gray);
+  border-bottom: 2px solid var(--primary-color);
 }
 
 h3 {
@@ -319,7 +319,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: #e8f4f8;
+  background-color: #ffe0e6;
 }
 
 /* Citations */
