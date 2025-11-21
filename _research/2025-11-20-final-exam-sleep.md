@@ -14,6 +14,7 @@ citations:
 ---
 
 ![University of Houston]({{ '/assets/images/university-of-houston-library.jpg' | relative_url }})
+
 During finals week, students often forgo sleep to prepare for their exams. All of a sudden, the night is seen as a potential study period, and students start to treat sleep like it is a luxury. Little do they know, sleep is not only a necessity, but it is one of the factors that promotes academic performance. 
 
 The article "The Eight Hour Sleep Challenge During Finals Week” written by Michael K. Scullen, delves into a study conducted to track sleep–and the lack thereof–and its effects on students. The article states that adults need 7-9 hours of sleep each night, and teenagers need 8-10. When students cut these hours short, they tend to see negative effects past the obvious of being fatigued and lethargic throughout the day. Lack of sleep affects your immune system, increases stress, promotes weight gain, promotes depression, decreases athletic performance, impares cognitive performance, and–arguably the worst for this topic–reduces concentration and memory retention. The lack of sleep actually ends up hurting students, rather than helping. 
