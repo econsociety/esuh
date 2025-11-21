@@ -1,7 +1,7 @@
 ---
 title: Sleep During Finals Week
 subtitle:
-author: Isaac Turner
+author: Serena Emeonye
 date: 2025-11-20
 excerpt: During finals week, students often forgo sleep to prepare for their exams. All of a sudden, the night is seen as a potential study period, and students start to treat sleep like it is a luxury. Little do they know, sleep is not only a necessity, but it is one of the factors that promotes academic performance.
 topic: Education
