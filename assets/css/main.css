@@ -460,6 +460,16 @@ tbody tr:hover {
   line-height: 1.7;
 }
 
+.team-member img,
+.page-body img {
+  max-width: 60%;        /* Prevents images from exceeding container width */
+  height: auto;            /* Maintains aspect ratio */
+  display: block;          /* Makes centering work */
+  margin: 2rem auto;       /* Centers image and adds vertical spacing */
+  border-radius: 24px;      /* Rounded corners for modern look */
+  box-shadow: var(--shadow-md); /* Subtle shadow for depth */
+}
+
 /* Footer */
 .site-footer {
   background: var(--primary-color);
