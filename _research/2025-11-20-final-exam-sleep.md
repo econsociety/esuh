@@ -13,7 +13,7 @@ citations:
   - The importance of sleep for students during finals season – The Flagler College Gargoyle. (n.d.). https://gargoyle.flagler.edu/the-importance-of-sleep-for-students-during-finals-season/
 ---
 
-![University of Houston]({{ '/assets/images/university-of-houston-library.jpg' | relative_url }}, "Katie Haugland Bowen / Flickr / CC BY 2.0")
+![University of Houston](({{ '/assets/images/university-of-houston-library.jpg' | relative_url }}), "Katie Haugland Bowen / Flickr / CC BY 2.0")
 
 During finals week, students often forgo sleep to prepare for their exams. All of a sudden, the night is seen as a potential study period, and students start to treat sleep like it is a luxury. Little do they know, sleep is not only a necessity, but it is one of the factors that promote academic performance. 
 
