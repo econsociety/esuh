@@ -14,5 +14,4 @@ working_paper_series: UH Inflation Index
 
 This working paper analyzes the University of Houston's resident tuition trends over time, examining how tuition costs have evolved in both nominal and real terms. The analysis provides insights into tuition affordability and helps contextualize current costs within historical patterns.
 
-<iframe src=({{ '/assets/graphs/UH_resident_tuition.html' | relative_url }}) width="100%">
-</iframe>
+<iframe src="{{ '/assets/graphs/UH_resident_tuition.html' | relative_url }}" width="100%" height="600" frameborder="0"></iframe>
