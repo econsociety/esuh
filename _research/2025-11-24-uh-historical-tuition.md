@@ -3,9 +3,8 @@ title: University of Houston Historical Tuition
 subtitle: How the up-front cost of attending UH has changed over the years
 author: Isaac Turner
 date: 2025-11-24
-excerpt: "Using the Internet Archive's Wayback Machine, I analyzed how UH tuition has changed since fiscal year 2009. Three trends emerge: a relatively constant increase of 2-3% most years, a large jump (~38%) between FY2012 and FY2013, and no tuition increases since FY2022. Comparing costs for an undergraduate student taking 12 credits in FY2009 ($2,262) with the same in FY2026 ($4,771) highlights a 111% increase—substantially outpacing general inflation. While UH's tuition freeze since FY2022 directly benefits current students, tuition is only one component of total costs students face. Future installments will expand this analysis to include housing, transportation, and foregone job earnings, culminating in a UH Inflation Index which reflects the true economic reality for UH students."
+excerpt: "Using the Internet Archive's Wayback Machine, I analyzed how UH tuition has changed since fiscal year 2009. Three trends emerge: a relatively constant increase of 2-3% most years, a large jump (~38%) between FY2012 and FY2013, and no tuition increases since FY2022. Comparing costs for an undergraduate student taking 12 credits in FY2009..."
 topic:
-  - Education
   - Inflation
 citations:
   - Trends in higher education series trends in college pricing and student. College Board. (n.d.). https://research.collegeboard.org/media/pdf/Trends-in-College-Pricing-and-Student-Aid-2024-ADA.pdf 
@@ -29,17 +28,18 @@ Note: tuition rates are set by fiscal year. Fiscal year 2024 (FY2024), for examp
 
 #### Results
 As shown in the chart above, we can identify 3 trends in tuition since FY2009.
-1) A relatively constant increase of 2-3% most years
-2) A large jump (~38%) between FY2012 and FY2013
-3) No tuition increases since FY2022
+- A relatively constant increase of 2-3% most years
+- A large jump (~38%) between FY2012 and FY2013
+- No tuition increases since FY2022
 
 These results indicate that tuition increases are not tied with general inflation. College Board highlights that, between FY2023 and FY2024, in-state tuition among public four-year colleges has increased 2.7% before adjusting for inflation. UH stands out with its lack of tuition hikes in recent years. Still, comparing costs for an undergraduate student taking 12 credits in FY2009 with the same in FY2026 highlights a large increase over the last ~15 years, even when compared to CPI inflation in the same time period.
 
-|                   | FY2009    | FY2026    | Change  |
-| ----------------- | --------- | --------- | ------- |
-| Avg $/Credit      | $188.47   | $397.59   | +110.9% |
+|  | FY2009 | FY2026 | Change |
+|---|--------|--------|--------|
+| Avg $/Credit | $188.47 | $397.59 | +110.9% |
 | Avg $: 12 Credits | $2,261.64 | $4,771.08 | +110.9% |
-| CPI*              | $100      | $150.50   | +50.5%  |
+| CPI* | $100 | $150.50 | +50.5% |
+
 \*$100 baseline, from Jan 2008 to Jan 2025
 #### Conclusion
 Tuition and total cost of attendance (COA) are major factors for potential students when weighing which college to attend or whether to attend college at all. As a public institution, the University of Houston has access to government funding on top of tuition revenue, which partially insulates it from market pressures and allows for greater discretion in tuition-setting decisions. The dramatic increase between FY2012 and FY2013 likely reflects shifts in state funding during that period, warranting further investigation.
@@ -48,5 +48,5 @@ UH's decision to freeze tuition increases since FY2022 represents a notable poli
 
 ## Next Steps
 Next I plan on analyzing 2 aspects:
-1) Correlation between UH tuition increases and more relevant economic factors such as median Houston-area income growth as well as UH rankings and fiscal health
-2) Continuing to quantify student costs such as median Houston-area rent as well as financial aid
+- Correlation between UH tuition increases and more relevant economic factors such as median Houston-area income growth as well as UH rankings and fiscal health
+- Continuing to quantify student costs such as median Houston-area rent as well as financial aid
