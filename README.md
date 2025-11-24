@@ -64,6 +64,7 @@ author: Isaac  # or Serena
 date: 2024-12-01
 topic: Labor Economics  # Choose appropriate topic
 working_paper: false  # Set to true for working papers
+working_paper_series: "SERIES NAME"  # Optional: Name of the working paper series (e.g., "UH INFLATION")
 installment: 1  # Only needed for multi-part working papers
 excerpt: A brief description of your research (1-2 sentences)
 citations:
@@ -190,12 +191,13 @@ Use consistent topic names for proper filtering. Recommended topics:
 
 ## Working Paper Series
 
-For multi-installment working papers:
+For multi-installment working papers, you can create a named series:
 
 1. Set `working_paper: true` in front matter
-2. Add `installment: 1` (or 2, 3, etc.)
-3. Use consistent title prefixes across installments
-4. Link between installments in the content
+2. Add `working_paper_series: "YOUR SERIES NAME"` to name your series (e.g., "UH INFLATION", "LABOR MARKET STUDY")
+3. Add `installment: 1` (or 2, 3, etc.) to indicate which installment this is
+4. Use consistent title prefixes across installments
+5. Link between installments in the content
 
 Example:
 ```yaml
@@ -203,9 +205,15 @@ Example:
 title: "Housing Markets: A Comprehensive Analysis"
 author: Isaac
 working_paper: true
+working_paper_series: "HOUSING RESEARCH"
 installment: 1
+excerpt: First installment examining housing market dynamics
 ---
 ```
+
+This will display as: **HOUSING RESEARCH - Installment 1**
+
+If you don't specify a `working_paper_series`, it will default to: **Working Paper - Installment 1**
 
 ## Customization
 

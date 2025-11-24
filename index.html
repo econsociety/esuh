@@ -41,7 +41,7 @@ title: Home
         {% endif %}
         {% if research.working_paper %}
         <span class="divider">|</span>
-        <span class="working-paper">Working Paper{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
+        <span class="working-paper">{% if research.working_paper_series %}{{ research.working_paper_series }}{% else %}Working Paper{% endif %}{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
         {% endif %}
       </div>
 
