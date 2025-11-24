@@ -158,7 +158,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   /* Animated gradient background */
-  background: linear-gradient(135deg, #0a1128, #1a2332, #2d1b4e, #1e3a5f, #0a1128);
+  background: linear-gradient(135deg, #202E5C, #394861, #593E96, #3170BD, #202E5C);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 }
