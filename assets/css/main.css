@@ -158,9 +158,9 @@ a:hover {
   position: relative;
   overflow: hidden;
   /* Animated gradient background */
-  background: linear-gradient(135deg, #202E5C, #394861, #593E96, #3170BD, #202E5C);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(135deg, #0a1128, #1a2332, #2d1b4e, #3170BD, #0a1128);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
 }
 
 /* Dot grid overlay */
@@ -172,8 +172,8 @@ a:hover {
   right: 0;
   bottom: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.5;
+  background-size: 20px 20px;
+  opacity: 0.7;
   pointer-events: none;
 }
 
@@ -197,7 +197,7 @@ a:hover {
 
 .home-hero h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   color: var(--white);
   font-weight: 800;
   letter-spacing: -0.03em;
