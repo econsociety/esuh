@@ -16,7 +16,7 @@ working_paper: "true"
 installment: "1"
 working_paper_series: UH Inflation Index
 ---
-<iframe src="{{ '/assets/graphs/uh_resident_tuition.html' | relative_url }}" width = "1000" height="700" frameborder="0"></iframe>
+<iframe src="{{ '/assets/graphs/uh_resident_tuition.html' | relative_url }}" width = "1000" height="600" frameborder="0"></iframe>
 *Various Select UH Colleges' Resident Tuition per Credit hour*
 #### Introduction
 The [Consumer Price Index](https://www.bls.gov/cpi/) (CPI), which measures price inflation, takes a variety of goods into account in its "basket of goods". For most college students, however, this may be an inaccurate view of spending. In this working paper series, I wish to quantify not only the cost of attendance for students at the University of Houston, but also how those costs have changed in recent years. This should cumulate into the development of a UH Inflation Index, which can quantify total cost change year over year. I will focus on tuition and college fees, rent, transportation, and other direct costs. Additionally, opportunity costs inflicted by low/no employment during college years will be taken into account. In this first installment, I analyze how UH tuition by college/program has changed since fiscal year 2009.
@@ -31,6 +31,7 @@ As shown in the chart above, we can identify 3 trends in tuition since FY2009.
 - A relatively constant increase of 2-3% most years
 - A large jump (~38%) between FY2012 and FY2013
 - No tuition increases since FY2022
+
 
 These results indicate that tuition increases are not tied with general inflation. College Board highlights that, between FY2023 and FY2024, in-state tuition among public four-year colleges has increased 2.7% before adjusting for inflation. UH stands out with its lack of tuition hikes in recent years. Still, comparing costs for an undergraduate student taking 12 credits in FY2009 with the same in FY2026 highlights a large increase over the last ~15 years, even when compared to CPI inflation in the same time period.
 
