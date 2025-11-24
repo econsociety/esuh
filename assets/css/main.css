@@ -292,7 +292,7 @@ a:hover {
 .research-body p,
 .page-body p {
   margin-bottom: 1.5rem;
-  text-align: justify;
+  text-align: left;
 }
 
 .research-body img,
