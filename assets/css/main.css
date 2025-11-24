@@ -158,9 +158,9 @@ a:hover {
   position: relative;
   overflow: hidden;
   /* Animated gradient background */
-  background: linear-gradient(135deg, #0a1128, #1a2332, #2d1b4e, #3170BD, #0a1128);
-  background-size: 300% 300%;
-  animation: gradientShift 10s ease infinite;
+  background: linear-gradient(135deg, #0a1128, #1a2332, #2d1b4e, #1e3a5f, #0a1128);
+  background-size: 350% 350%;
+  animation: gradientShift 18s ease infinite;
 }
 
 /* Dot grid overlay */
