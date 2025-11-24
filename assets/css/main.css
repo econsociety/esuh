@@ -153,26 +153,64 @@ a:hover {
 .home-hero {
   text-align: center;
   padding: 5rem 20px;
-  background: var(--white);
   margin: -3rem -20px 3rem;
   border-bottom: 4px solid var(--primary-color);
   position: relative;
+  overflow: hidden;
+  /* Animated gradient background */
+  background: linear-gradient(135deg, #0a1128, #1a2332, #2d1b4e, #1e3a5f, #0a1128);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Dot grid overlay */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Ensure content stays on top of the background */
+.home-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .home-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--text-color);
+  color: var(--white);
   font-weight: 800;
   letter-spacing: -0.03em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .home-hero p {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 650px;
   margin: 0 auto 2.5rem;
   line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
@@ -510,12 +548,21 @@ tbody tr:hover {
     font-size: 1.5rem;
   }
 
+  .home-hero {
+    padding: 4rem 20px;
+  }
+
   .home-hero h1 {
     font-size: 2rem;
   }
 
   .home-hero p {
     font-size: 1.1rem;
+  }
+
+  /* Adjust dot grid size for mobile */
+  .home-hero::before {
+    background-size: 20px 20px;
   }
 
   .research-body,
