@@ -601,3 +601,26 @@ tbody tr:hover {
     font-size: 12pt;
   }
 }
+
+/* Working Paper Series Styles */
+.series-link {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.series-button {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.series-button:hover {
+  background: var(--primary-dark);
+  color: white;
+}

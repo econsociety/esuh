@@ -1,0 +1,133 @@
+---
+layout: page
+title: Working Paper Series
+subtitle: Multi-installment research series
+---
+
+<p>Our working paper series are multi-installment research projects that explore complex topics in depth. Each series contains multiple papers that build upon each other.</p>
+
+{% assign all_series = site.research | where: "working_paper", true | where_exp: "item", "item.working_paper_series != nil" | map: "working_paper_series" | uniq %}
+
+{% if all_series.size > 0 %}
+<div class="series-list">
+  {% for series_name in all_series %}
+  {% assign series_papers = site.research | where: "working_paper_series", series_name | sort: "installment" %}
+  {% assign latest_paper = series_papers | last %}
+
+  <div class="series-card">
+    <h2>{{ series_name }}</h2>
+    <div class="series-meta">
+      <span class="installment-count">{{ series_papers.size }} Installment{% if series_papers.size != 1 %}s{% endif %}</span>
+      <span class="divider">|</span>
+      <span class="latest-date">Latest: {{ latest_paper.date | date: "%B %Y" }}</span>
+    </div>
+
+    <div class="series-papers">
+      {% for paper in series_papers %}
+      <div class="paper-item">
+        <span class="badge">Installment {{ paper.installment }}</span>
+        <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+        <span class="paper-date">{{ paper.date | date: "%b %Y" }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <a href="{{ '/working-papers/' | append: series_name | downcase | replace: ' ', '-' | relative_url }}" class="view-series-button">
+      View Series →
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p style="color: #666; text-align: center; padding: 3rem 0;">
+  No working paper series have been published yet. Check back soon!
+</p>
+{% endif %}
+
+<style>
+.series-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.series-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.series-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.series-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.installment-count {
+  font-weight: 600;
+}
+
+.series-papers {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.paper-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 4px;
+}
+
+.paper-item .badge {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.paper-item a {
+  flex: 1;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.paper-item a:hover {
+  color: var(--primary-color);
+}
+
+.paper-date {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.view-series-button {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-series-button:hover {
+  background: var(--primary-hover);
+}
+</style>

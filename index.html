@@ -48,6 +48,14 @@ title: Home
       {% if research.excerpt %}
       <p class="research-excerpt">{{ research.excerpt }}</p>
       {% endif %}
+
+      {% if research.working_paper and research.working_paper_series %}
+      <p class="series-link">
+        <a href="{{ '/working-papers/' | append: research.working_paper_series | downcase | replace: ' ', '-' | relative_url }}" class="series-button">
+          View {{ research.working_paper_series }} Series →
+        </a>
+      </p>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

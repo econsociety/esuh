@@ -191,13 +191,18 @@ Use consistent topic names for proper filtering. Recommended topics:
 
 ## Working Paper Series
 
-For multi-installment working papers, you can create a named series:
+Working papers are treated as normal research articles with additional series functionality. Each working paper:
+- Displays as a normal article in research listings
+- Shows a series badge (e.g., "UH INFLATION - Installment 1")
+- Has a button linking to its series page
+- The series page lists all installments in order
+
+### Creating a Working Paper
 
 1. Set `working_paper: true` in front matter
 2. Add `working_paper_series: "YOUR SERIES NAME"` to name your series (e.g., "UH INFLATION", "LABOR MARKET STUDY")
 3. Add `installment: 1` (or 2, 3, etc.) to indicate which installment this is
-4. Use consistent title prefixes across installments
-5. Link between installments in the content
+4. Optionally add `permalink` to customize the URL
 
 Example:
 ```yaml
@@ -208,12 +213,73 @@ working_paper: true
 working_paper_series: "HOUSING RESEARCH"
 installment: 1
 excerpt: First installment examining housing market dynamics
+permalink: /research/housing-markets-1/
 ---
 ```
 
-This will display as: **HOUSING RESEARCH - Installment 1**
+### Creating a Series Page
 
-If you don't specify a `working_paper_series`, it will default to: **Working Paper - Installment 1**
+After creating your first working paper in a series, create a dedicated series page:
+
+1. Create a file in `working-papers/` directory
+2. Name it based on your series (e.g., `working-papers/housing-research.html`)
+3. Use this template:
+
+```html
+---
+layout: page
+title: "HOUSING RESEARCH Working Paper Series"
+subtitle: "Brief description of the series"
+---
+
+<div class="series-info">
+  <p>Detailed description of what this series explores.</p>
+</div>
+
+<section class="series-installments">
+  <h2>Series Installments</h2>
+
+  {% assign series_papers = site.research | where: "working_paper_series", "HOUSING RESEARCH" | sort: "installment" %}
+
+  {% if series_papers.size > 0 %}
+  <div class="research-list">
+    {% for paper in series_papers %}
+    <div class="research-item">
+      <h3>
+        <span class="installment-badge">Installment {{ paper.installment }}</span>
+        <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+      </h3>
+
+      {% if paper.subtitle %}
+      <p class="subtitle">{{ paper.subtitle }}</p>
+      {% endif %}
+
+      <div class="research-meta">
+        <span class="author">By {{ paper.author }}</span>
+        <span class="divider">|</span>
+        <span class="date">{{ paper.date | date: "%B %d, %Y" }}</span>
+      </div>
+
+      {% if paper.excerpt %}
+      <p class="research-excerpt">{{ paper.excerpt }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+```
+
+The URL slug should match your series name in lowercase with spaces replaced by hyphens:
+- "UH INFLATION" → `working-papers/uh-inflation.html`
+- "HOUSING RESEARCH" → `working-papers/housing-research.html`
+
+### How It Works
+
+- Each working paper displays with a "View [SERIES NAME] Series →" button
+- This button links to the series page at `/working-papers/[series-name]/`
+- The series page lists all installments in numerical order
+- The main `/working-papers` page shows all series across the site
 
 ## Customization
 
