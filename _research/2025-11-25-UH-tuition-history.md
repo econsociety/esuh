@@ -8,6 +8,7 @@ topic: UH Inflation
 working_paper: true
 working_paper_series: UH INFLATION
 installment: 1
+permalink: /research/UH-tuition-history/
 ---
 
 ## Abstract
