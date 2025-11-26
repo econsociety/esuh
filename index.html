@@ -22,6 +22,52 @@ title: Home
 </section>
 
 <section class="home-section">
+  <h2>Upcoming Events</h2>
+  {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% assign sorted_events = site.events | sort: 'event_date' %}
+  {% assign upcoming_events = "" | split: "" %}
+  {% for event in sorted_events %}
+    {% assign event_date = event.event_date | date: "%Y-%m-%d" %}
+    {% if event_date > today %}
+      {% assign upcoming_events = upcoming_events | push: event %}
+    {% endif %}
+  {% endfor %}
+  {% assign upcoming_events = upcoming_events | slice: 0, 2 %}
+  {% if upcoming_events.size > 0 %}
+  <div class="research-list">
+    {% for event in upcoming_events %}
+    <div class="research-item">
+      <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+
+      <div class="research-meta">
+        <span class="date">{{ event.event_date | date: "%B %d, %Y" }}</span>
+        {% if event.time %}
+        <span class="divider">|</span>
+        <span>{{ event.time }}</span>
+        {% endif %}
+        {% if event.location %}
+        <span class="divider">|</span>
+        <span>{{ event.location }}</span>
+        {% endif %}
+      </div>
+
+      {% if event.description %}
+      <p class="research-excerpt">{{ event.description }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <p style="text-align: center; margin-top: 2rem;">
+    <a href="/esuh-research/events" style="color: var(--primary-color); font-weight: 600;">View all events →</a>
+  </p>
+  {% else %}
+  <p style="color: var(--text-secondary);">
+    No upcoming events scheduled. Check back soon!
+  </p>
+  {% endif %}
+</section>
+
+<section class="home-section">
   <h2>Recent Research</h2>
   {% assign recent_research = site.research | sort: 'date' | reverse | limit: 2 %}
   {% if recent_research.size > 0 %}
