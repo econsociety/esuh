@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<article class="event-article">
+  <header class="event-header">
+    <h1>{{ page.title }}</h1>
+
+    {% if page.image %}
+    <div class="event-featured-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="event-metadata">
+      <div class="event-meta-item">
+        <strong>📅 Date:</strong> {{ page.event_date | date: "%B %d, %Y" }}
+      </div>
+      {% if page.time %}
+      <div class="event-meta-item">
+        <strong>🕐 Time:</strong> {{ page.time }}
+      </div>
+      {% endif %}
+      {% if page.location %}
+      <div class="event-meta-item">
+        <strong>📍 Location:</strong> {{ page.location }}
+      </div>
+      {% endif %}
+      {% if page.link %}
+      <div class="event-meta-item">
+        <strong>🔗 Link:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if page.description %}
+    <p class="event-summary">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="event-content">
+    {{ content }}
+  </div>
+
+  <footer class="event-footer">
+    <a href="{{ '/events' | relative_url }}" class="back-link">← Back to Events</a>
+  </footer>
+</article>

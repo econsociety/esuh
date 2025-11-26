@@ -1,6 +1,6 @@
 # Site settings
-title: ESUH Research
-description: Economics research portfolio
+title: ESUH
+description: Economics Society at the University of Houston
 baseurl: "/esuh-research" # the subpath of your site, e.g. /blog
 url: "https://isaacturner-uh.github.io" # the base hostname & protocol for your site
 
@@ -22,6 +22,9 @@ collections:
   research:
     output: true
     permalink: /research/:title/
+  events:
+    output: true
+    permalink: /events/:title/
 
 # Defaults
 defaults:
@@ -30,6 +33,11 @@ defaults:
       type: "research"
     values:
       layout: "research"
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
   - scope:
       path: ""
       type: "pages"

@@ -1,0 +1,147 @@
+---
+layout: page
+title: Events
+subtitle: ESUH events and activities
+---
+
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign sorted_events = site.events | sort: 'event_date' %}
+
+{% assign today_events = "" | split: "" %}
+{% assign upcoming_events = "" | split: "" %}
+{% assign past_events = "" | split: "" %}
+
+{% for event in sorted_events %}
+  {% assign event_date = event.event_date | date: "%Y-%m-%d" %}
+  {% if event_date == today %}
+    {% assign today_events = today_events | push: event %}
+  {% elsif event_date > today %}
+    {% assign upcoming_events = upcoming_events | push: event %}
+  {% else %}
+    {% assign past_events = past_events | push: event %}
+  {% endif %}
+{% endfor %}
+
+{% assign past_events = past_events | reverse %}
+
+<!-- Today's Events -->
+{% if today_events.size > 0 %}
+<section class="events-section">
+  <h2 class="events-category-title">🎯 Today's Events</h2>
+  <div class="events-list">
+    {% for event in today_events %}
+    <div class="event-item today-event">
+      {% if event.image %}
+      <div class="event-image">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
+      </div>
+      {% endif %}
+      <div class="event-content">
+        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <div class="event-meta">
+          <span class="event-date">📅 {{ event.event_date | date: "%B %d, %Y" }}</span>
+          {% if event.time %}
+          <span class="divider">|</span>
+          <span class="event-time">🕐 {{ event.time }}</span>
+          {% endif %}
+          {% if event.location %}
+          <span class="divider">|</span>
+          <span class="event-location">📍 {{ event.location }}</span>
+          {% endif %}
+        </div>
+        {% if event.description %}
+        <p class="event-description">{{ event.description }}</p>
+        {% endif %}
+        {% if event.link %}
+        <p><a href="{{ event.link }}" class="event-link" target="_blank">Event Details →</a></p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Upcoming Events -->
+<section class="events-section">
+  <h2 class="events-category-title">📅 Upcoming Events</h2>
+  {% if upcoming_events.size > 0 %}
+  <div class="events-list">
+    {% for event in upcoming_events %}
+    <div class="event-item upcoming-event">
+      {% if event.image %}
+      <div class="event-image">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
+      </div>
+      {% endif %}
+      <div class="event-content">
+        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <div class="event-meta">
+          <span class="event-date">📅 {{ event.event_date | date: "%B %d, %Y" }}</span>
+          {% if event.time %}
+          <span class="divider">|</span>
+          <span class="event-time">🕐 {{ event.time }}</span>
+          {% endif %}
+          {% if event.location %}
+          <span class="divider">|</span>
+          <span class="event-location">📍 {{ event.location }}</span>
+          {% endif %}
+        </div>
+        {% if event.description %}
+        <p class="event-description">{{ event.description }}</p>
+        {% endif %}
+        {% if event.link %}
+        <p><a href="{{ event.link }}" class="event-link" target="_blank">Event Details →</a></p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="color: var(--text-secondary); text-align: center; padding: 2rem 0;">
+    No upcoming events scheduled. Check back soon!
+  </p>
+  {% endif %}
+</section>
+
+<!-- Past Events -->
+<section class="events-section">
+  <h2 class="events-category-title">📚 Past Events</h2>
+  {% if past_events.size > 0 %}
+  <div class="events-list">
+    {% for event in past_events %}
+    <div class="event-item past-event">
+      {% if event.image %}
+      <div class="event-image">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
+      </div>
+      {% endif %}
+      <div class="event-content">
+        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <div class="event-meta">
+          <span class="event-date">📅 {{ event.event_date | date: "%B %d, %Y" }}</span>
+          {% if event.time %}
+          <span class="divider">|</span>
+          <span class="event-time">🕐 {{ event.time }}</span>
+          {% endif %}
+          {% if event.location %}
+          <span class="divider">|</span>
+          <span class="event-location">📍 {{ event.location }}</span>
+          {% endif %}
+        </div>
+        {% if event.description %}
+        <p class="event-description">{{ event.description }}</p>
+        {% endif %}
+        {% if event.link %}
+        <p><a href="{{ event.link }}" class="event-link" target="_blank">Event Details →</a></p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="color: var(--text-secondary); text-align: center; padding: 2rem 0;">
+    No past events to display yet.
+  </p>
+  {% endif %}
+</section>
