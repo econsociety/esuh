@@ -12,7 +12,6 @@ citations:
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Houston-Pasadena-The Woodlands, TX (MSA) [HOUS448NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HOUS448NAN, December 1, 2025."
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in San Antonio-New Braunfels, TX (MSA) [SANA748NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/SANA748NAN, December 1, 2025."
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Houston-Pasadena-The Woodlands, TX (MSA) [HOUS448NA], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HOUS448NA, December 1, 2025."
-working_paper: "false"
 ---
 
 ![Average Month to Month Employment Change % by Texas Metro Area]({{ '/assets/images/avgmmemployment.png' | relative_url }})
