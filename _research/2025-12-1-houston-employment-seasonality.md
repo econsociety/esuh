@@ -12,4 +12,4 @@ installment:
 ---
 
 ![ImgTitle]({{ '/assets/images/img' | relative_url }})
-Intro
+Coming soon
