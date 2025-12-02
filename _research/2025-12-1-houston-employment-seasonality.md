@@ -3,21 +3,24 @@ title: Houston's Seasonal Employment Patterns
 subtitle: How contract cycles create predictable job losses twice a year
 author: Isaac Turner
 date: 2025-12-01
-excerpt: In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed 35 years of Texas metro areas' employment patterns. The data reveal a consistent "double-dip" seasonal pattern...
+excerpt: In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed the employment patterns of 35 years of Texas metro areas. The data reveal a consistent "double-dip" seasonal pattern...
 topic:
   - Labor Market
 citations:
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Austin-Round Rock-San Marcos, TX (MSA) [AUST448NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AUST448NAN, December 1, 2025.\r"
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Dallas-Fort Worth-Arlington, TX (MSA) [DALL148NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/DALL148NAN, December 1, 2025."
+  -  "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Houston-Pasadena-The Woodlands, TX (MSA) [HOUS448NA], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HOUS448NA, December 1, 2025."
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Houston-Pasadena-The Woodlands, TX (MSA) [HOUS448NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HOUS448NAN, December 1, 2025."
   - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in San Antonio-New Braunfels, TX (MSA) [SANA748NAN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/SANA748NAN, December 1, 2025."
-  - "U.S. Bureau of Labor Statistics, All Employees: Total Nonfarm in Houston-Pasadena-The Woodlands, TX (MSA) [HOUS448NA], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HOUS448NA, December 1, 2025."
 ---
 
-![Average Month to Month Employment Change % by Texas Metro Area]({{ '/assets/images/avgmmemployment.png' | relative_url }})
-#### Introduction
-In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed Houston's employment patterns alongside other major Texas metro areas from 1990-2025. The data reveal a consistent "double-dip" seasonal pattern. Employment drops sharply in January and experiences a secondary dip in July, despite consistent growth during all other months.
+![Houston Skyline]({{ '/assets/images/houston-skyline.jpg' | relative_url }})
+*Christine / Flickr / CC BY-NC-ND 2.0*
 
+#### Introduction
+In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed Houston's employment patterns alongside other major Texas metro areas from 1990 to 2025. The data reveal a consistent "double-dip" seasonal pattern. Employment drops sharply in January and experiences a secondary dip in July, despite consistent growth during all other months.
+
+![Average Month to Month Employment Change % by Texas Metro Area]({{ '/assets/images/avgmmemployment.png' | relative_url }})
 #### Analysis
 The January decline is substantial and predictable. Houston's employment falls by an average of 1.77% each January, translating to approximately 40,000 jobs based on current employment levels. This is followed by a rebound in February, which makes it one of the highest growth months. Across the other major metro areas in Texas, we see the following January employment changes:
 
