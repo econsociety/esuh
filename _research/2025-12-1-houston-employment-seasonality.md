@@ -23,7 +23,7 @@ In January, Houston typically loses 1-2% of its employed non-farm workforce. Usi
 #### Analysis
 The January decline is substantial and predictable. Houston's employment falls by an average of 1.77% each January, translating to approximately 40,000 jobs based on current employment levels. This is followed by a rebound in February, which makes it one of the highest growth months. Across the other major metro areas in Texas, we see the following January employment changes:
 
-| Metro Area                                                   | Typical Jan Employment Change | Typical Feb Employment Change |
+| Metro Area                                                   | Average Jan Employment Change | Average Feb Employment Change |
 | ------------------------------------------------------------ | ----------------------------- | ----------------------------- |
 | [Austin](https://fred.stlouisfed.org/series/AUST448NAN)      | -1.46%                        | 1.03%                         |
 | [Dallas](https://fred.stlouisfed.org/series/DALL148NAN)      | -1.88%                        | 0.61%                         |
