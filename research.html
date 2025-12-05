@@ -33,7 +33,7 @@ subtitle: Browse all research papers and working papers
     {% endif %}
 
     <div class="research-meta">
-      <span class="author">By {{ research.author }}</span>
+      <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/research-team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
       <span class="divider">|</span>
       <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
       {% if research.topic %}

@@ -695,7 +695,9 @@ tbody tr:hover {
   padding: 0.5rem 0;
   top: 100%;
   left: 0;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .dropdown-content a {
@@ -713,8 +715,10 @@ tbody tr:hover {
   color: var(--primary-color);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
   display: block;
+  opacity: 1;
 }
 
 /* Events Page Styles */

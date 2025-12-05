@@ -69,7 +69,7 @@ title: Home
 
 <section class="home-section">
   <h2>Recent Research</h2>
-  {% assign recent_research = site.research | sort: 'date' | reverse | limit: 2 %}
+  {% assign recent_research = site.research | sort: 'date' | reverse | limit: 3 %}
   {% if recent_research.size > 0 %}
   <div class="research-list">
     {% for research in recent_research %}
@@ -81,7 +81,7 @@ title: Home
       {% endif %}
 
       <div class="research-meta">
-        <span class="author">By {{ research.author }}</span>
+        <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/research-team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
         <span class="divider">|</span>
         <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
         {% if research.topic %}

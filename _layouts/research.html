@@ -11,7 +11,7 @@ layout: default
       {% endif %}
 
       <div class="research-meta">
-        <span class="author">By {{ page.author }}</span>
+        <span class="author">By {% assign author_slug = page.author | downcase | replace: ' ', '-' %}<a href="{{ '/research-team#' | append: author_slug | relative_url }}">{{ page.author }}</a></span>
         <span class="divider">|</span>
         <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
         {% if page.topic %}
@@ -41,3 +41,17 @@ layout: default
     {% endif %}
   </article>
 </div>
+
+<script>
+  // Convert URLs in citations to clickable links
+  document.addEventListener('DOMContentLoaded', function() {
+    const citations = document.querySelectorAll('.citations li');
+    const urlPattern = /(https?:\/\/[^\s,;]+)/g;
+
+    citations.forEach(function(citation) {
+      const text = citation.innerHTML;
+      const linkedText = text.replace(urlPattern, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+      citation.innerHTML = linkedText;
+    });
+  });
+</script>
