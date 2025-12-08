@@ -9,7 +9,7 @@ This repository contains a static website built with Jekyll and hosted on GitHub
 ## Repository Structure
 
 ```
-esuh-research/
+esuh/
 ├── _config.yml              # Jekyll configuration
 ├── _layouts/                # Page templates
 │   ├── default.html        # Base template with header/footer
