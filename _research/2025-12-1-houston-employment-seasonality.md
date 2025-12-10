@@ -16,7 +16,7 @@ citations:
 ---
 
 ![Houston Skyline]({{ '/assets/images/houston-skyline.jpg' | relative_url }})
-*Christine / Flickr / CC BY-NC-ND 2.0*
+[*Christine / Flickr / CC BY-NC-ND 2.0*](https://www.flickr.com/photos/bigpinkcookie/13289288/in/photolist-7uqHnu-obGXq7-nUmEvY-qBUi-oBtAY5-eDKSha-HmtMQ-ozrucr-oP7fEC-4Ntqk-2b7rE-5QCuqF-jvn1oG-M52Cg-DSq7j5-dBrXTP-nndKE4-23cSyw9-7e3G9V-wmmCAG-p4bhJv-dUQjY2-4Xy6He-2exb7QK-F7NdLj-fcenw2-dHXTon-c7ADKY-ePBUY6-c7ANi1-e9YjTo-omiuVc-pwgBCW-dEy6w8-B3XJ-22aQmjQ-M52Fe-ioCj41-c7AFhC-dExdVG-S2MUut-6RaMwB-S2Ne7t-9bVPhL-oL1Eff-oNA5i6-bbXpdM-CoWD1u)
 
 #### Introduction
 In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed Houston's employment patterns alongside other major Texas metro areas from 1990 to 2025. The data reveal a consistent "double-dip" seasonal pattern. Employment drops sharply in January and experiences a secondary dip in July, despite consistent growth during all other months.
