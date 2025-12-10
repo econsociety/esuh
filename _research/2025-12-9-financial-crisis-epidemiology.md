@@ -38,7 +38,8 @@ Similar dynamics can be observed in the spread of financial crisis. On September
 The same mathematical framework used to model the spread of infectious diseases such as COVID-19 can explain the so-called contagion in financial markets as well. Research by [Demiris, Kypraios, and Smith (2014)](https://academic.oup.com/jrsssa/article/177/3/697/7077874) shows that financial crises spread across markets and nations in a similar manner to disease transmission. Their framework is as follows:
 - **Susceptible (S)**: Financially healthy institutions exposed to crisis risk
 - **Infected (I)**: Institutions in financial distress that can transmit crisis to others
-- **Recovered (R)**: Institutions stabilized through bailouts, restructuring, or regulation<br>
+- **Recovered (R)**: Institutions stabilized through bailouts, restructuring, or regulation
+<br>
 
 Crisis transmission occurs through two channels: **local contagion** (direct counterparty relationships, regional banking networks) at a rate $\lambda_L$, and **global contagion** (fear-based market selloffs, liquidity crises) at rate $\lambda_G$. Just as COVID spread through close and even passing contact, financial crises propagate through direct market relationships as well as broader market panic.
 
