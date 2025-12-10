@@ -40,6 +40,7 @@ The same mathematical framework used to model the spread of infectious diseases 
 - **Infected (I)**: Institutions in financial distress that can transmit crisis to others
 - **Recovered (R)**: Institutions stabilized through bailouts, restructuring, or regulation
 <br>
+<br>
 
 Crisis transmission occurs through two channels: **local contagion** (direct counterparty relationships, regional banking networks) at a rate $\lambda_L$, and **global contagion** (fear-based market selloffs, liquidity crises) at rate $\lambda_G$. Just as COVID spread through close and even passing contact, financial crises propagate through direct market relationships as well as broader market panic.
 
