@@ -14,7 +14,7 @@ citations:
 ---
 
 ![University of Houston]({{ '/assets/images/university-of-houston.jpg' | relative_url }})
-*Corey Seeman / Flickr / CC BY-NC-SA 2.0*
+[*Corey Seeman / Flickr / CC BY-NC-SA 2.0*](https://www.flickr.com/photos/cseeman/36279898160/in/album-72157686390643506/)
 
 #### Introduction
 As the Fall 2025 semester draws to a close, finals week looms over students at the University of Houston and beyond. Students likely face stress of back-to-back exams as well as balancing studying with work or other commitments. This collection of economic research highlights that the structure of finals week does impact students’ performance on exams. Additionally, the tradeoffs for working students are quantified and analyzed.
