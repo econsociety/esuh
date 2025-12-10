@@ -3,6 +3,7 @@ title: A Brigher Horizon
 subtitle: Positive Economic Trends Taking Shape for 2026
 author: Serena Emeonye
 date: 2025-12-03
+featured: true
 excerpt: With the current state of the economy, the future may seem daunting. It is easy to infer that the current disasters in every aspect of the economy will extend well into the new year–but I am pleased to say that is not the case...
 topic:
   - Macroeconomics

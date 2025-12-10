@@ -3,6 +3,7 @@ title: How Financial Crises Spread Like Diseases
 subtitle: The Epidemic Economics of the 2008 Crash
 author: Isaac Turner
 date: 2025-12-09
+featured: true
 excerpt: By 1997, 49% of financial crisis transmission was global. The same math that tracked COVID-19 explains why Lehman Brothers' collapse infected the global economy. Epidemiological models allow economists to study market crises...
 topic:
   - Macroeconomics

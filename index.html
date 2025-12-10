@@ -69,7 +69,14 @@ title: Home
 
 <section class="home-section">
   <h2>Recent Research</h2>
-  {% assign recent_research = site.research | sort: 'date' | reverse | limit: 3 %}
+  {% assign featured_research = "" | split: "" %}
+  {% assign sorted_research = site.research | sort: 'date' | reverse %}
+  {% for research in sorted_research %}
+    {% if research.featured == true %}
+      {% assign featured_research = featured_research | push: research %}
+    {% endif %}
+  {% endfor %}
+  {% assign recent_research = featured_research %}
   {% if recent_research.size > 0 %}
   <div class="research-list">
     {% for research in recent_research %}

@@ -3,6 +3,7 @@ title: Houston's Seasonal Employment Patterns
 subtitle: How contract cycles create predictable job losses twice a year
 author: Isaac Turner
 date: 2025-12-01
+featured: true
 excerpt: In January, Houston typically loses 1-2% of its employed non-farm workforce. Using monthly, non-seasonally adjusted employment data from FRED, I analyzed the employment patterns of 35 years of Texas metro areas. The data reveal a consistent "double-dip" seasonal pattern...
 topic:
   - Labor Market
