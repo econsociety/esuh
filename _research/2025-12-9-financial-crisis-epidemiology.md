@@ -14,18 +14,17 @@ a:
 b:
 ---
 
-![Lehman Brothers Building]({{ '/assets/images/img' | relative_url }})
+![Lehman Brothers Building]({{ '/assets/images/lehman-brothers.jpg' | relative_url }})
+*Sachab / Flickr / CC BY 2.0*
+
 During the COVID-19 pandemic, many scientific resources were allocated towards predicting and mitigating the spread of the disease. Many such efforts used established numerical models for predicting contagious disease spread. The most common of these is the [SIR model](https://en.wikipedia.org/wiki/Compartmental_models_(epidemiology)) (Susceptible/Infected/Recovered). In this model, there is a fixed population, and we start with a small number of infected individuals with all others labeled susceptible. The disease then spreads with certain parameters (based on the disease's contagious attributes and individual interaction levels). As individuals contract the disease, they are then able to spread it to others and eventually they become recovered at a rate based on the specific disease. They can then neither contract nor spread the disease. Mathematically, this is described by the following system of differential equations:
 
+$$S(t):   \frac{dS}{dt} = -\beta*I(t)*S(t)$$
+$$I(t):   \frac{dI}{dt} = \beta*I(t)*S(t) - \alpha*I(t)$$
+$$R(t):   \frac{dR}{dt} = \alpha*I(t)$$
+$$\alpha: \text{recovery rate}$$
 
-$$S(t):   \frac{dS}{dt} = -\beta*I(t)*S(t)
-$$
-$$I(t):   \frac{dI}{dt} = \beta*I(t)*S(t) - \alpha*I(t)
-$$$$R(t):   \frac{dR}{dt} = \alpha*I(t)
-$$$$\alpha: \text{recovery rate}
-
-$$$$\beta: \text{contagion rate}
-$$
+$$\beta: \text{contagion rate}$$
 
 On September 15th, 2008 the Lehman Brothers filed Chapter 11 bankruptcy, associated with their overleveraging of subprime mortgages. Within the next 48 hours, the crisis spread across financial markets globally. The Dow Jones dropped ~4%- it's biggest drop since September 11, 2001. By September 16th, 2008, AIG required an $85 billion emergency bailout. The contagion spread, collapsing European banks, crashing Asian markets, and causing sovereign debt crises in Europe. 26,000 Lehman Brothers employees lost their jobs, and the global economy experienced the worst recession in almost a decade.
 
