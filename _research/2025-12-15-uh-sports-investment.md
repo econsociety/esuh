@@ -19,7 +19,7 @@ featured: "true"
 ---
 
 ![University of Houston Football]({{ '/assets/images/uh-football.jpg' | relative_url }})
-*2C2K Photography / Flickr / CC BY 4.0*
+[*2C2K Photography / Flickr / CC BY 4.0*]("https://www.flickr.com/photos/2cheap2keep/54784709241/in/photolist-2rt8Xor-2nZiP3F-2p4Cew1-2nZkf8M-2qjzVrf-2nZiNQX-2nZmgNe-2nZmg5F-2nZke6B-2mu8te8-2nqRwTv-2nZmfen-2ruMnhc-2p4zDzU-2phpTY1-2qjBAgf-2oZWRBs-2qqFt12-2rDbQ2U-2rDbTiu-2oZZShi-2p4CeEN-2mtYyDg-2rt4CeP-2mu8qYb-2qqMcCn-2phup6R-2mtYAZ8-2mu4PrP-2qjzVwR-2phum74-2p4zE2F-2phvvuC-2p4CeJW-2phwFMS-2phwDbp-2phvwqq-2qjCdYz-2p4zDyw-2ruKCZz-2phwF85-2qqMCmB-2p4CekE-2p4BcUi-2mu7jUJ-2qqKT6n-2qjBA8j-2qqFsKh-2mu4RHc-2p4BcAT")
 
 Economic development is often associated with infrastructure projects or corporate
 investment, but at the University of Houston, athletics spending has increasingly played
