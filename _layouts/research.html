@@ -11,7 +11,7 @@ layout: default
       {% endif %}
 
       <div class="research-meta">
-        <span class="author">By {% assign author_slug = page.author | downcase | replace: ' ', '-' %}<a href="{{ '/research-team#' | append: author_slug | relative_url }}">{{ page.author }}</a></span>
+        <span class="author">By {% assign author_slug = page.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ page.author }}</a></span>
         <span class="divider">|</span>
         <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
         {% if page.topic %}
