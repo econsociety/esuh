@@ -25,7 +25,6 @@ esuh/
 │   ├── js/
 │   └── images/
 ├── index.html             # Homepage
-├── research-team.html     # About the research team
 ├── about-esuh.html        # About ESUH organization
 ├── team.html              # ESUH officers and leadership
 ├── research.html          # Research index page

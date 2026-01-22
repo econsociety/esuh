@@ -88,7 +88,7 @@ title: Home
       {% endif %}
 
       <div class="research-meta">
-        <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/research-team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
+        <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
         <span class="divider">|</span>
         <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
         {% if research.topic %}
