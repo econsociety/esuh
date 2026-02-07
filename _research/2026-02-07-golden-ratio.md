@@ -12,7 +12,6 @@ citations:
   - Morningstar. (2026, February 2). Why did gold and silver prices plunge? Deleveraging shocks and the 'Warsh Effect' explained. https://www.morningstar.com/markets/why-are-gold-silver-plunging
   - "Syz Group. (2026, February 6). Markets react to Warsh’s Fed nomination: The 'Great Metal Flush' and the disappearance of $7 trillion in market value. Syz Blog. https://blog.syzgroup.com/slow-food-for-thought/markets-react-to-warshs-fed-nomination"
   - "World Gold Council. (2025). Gold demand trends: Above-ground gold stocks and institutional investment. https://www.gold.org/goldhub/data/gold-supply-and-demand-statistics"
-working_paper: "false"
 installment:
 featured: "true"
 ---
