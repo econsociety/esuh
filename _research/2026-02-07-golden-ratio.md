@@ -6,7 +6,6 @@ date: 2026-02-07
 excerpt: So the million-dollar question is what led to golds meteoric rise this past year and what led to its fall. Simply put, politics. Now, this is not the only reason, but it is one of the main catalysts that helped gold perform so well. From April 2nd of 2025 to January 26th of 2026...
 topic:
   - Market Economics
-  - Macroeconomics
 citations:
   - "Invesco US. (2026, January 30). Kevin Warsh nominated to serve as the next Fed chair: Market implications and the shift in monetary regime. https://www.invesco.com/us/en/insights/kevin-warsh-nominated-fed-chair.html"
   - Morningstar. (2026, February 2). Why did gold and silver prices plunge? Deleveraging shocks and the 'Warsh Effect' explained. https://www.morningstar.com/markets/why-are-gold-silver-plunging
