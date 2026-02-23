@@ -6,12 +6,6 @@ layout: default
   <header class="event-header">
     <h1>{{ page.title }}</h1>
 
-    {% if page.image %}
-    <div class="event-featured-image">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    </div>
-    {% endif %}
-
     <div class="event-metadata">
       <div class="event-meta-item">
         <strong>📅 Date:</strong> {{ page.event_date | date: "%B %d, %Y" }}

@@ -853,18 +853,6 @@ tbody tr:hover {
   color: var(--text-color);
 }
 
-.event-featured-image {
-  margin: 2rem 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.event-featured-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .event-metadata {
   background: var(--light-gray);
   padding: 1.5rem;
@@ -921,6 +909,15 @@ tbody tr:hover {
   margin-bottom: 0.5rem;
 }
 
+.event-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
 .event-footer {
   margin-top: 2rem;
   padding-top: 2rem;
@@ -966,27 +963,6 @@ tbody tr:hover {
   transform: translateY(-4px);
   text-decoration: none;
   color: inherit;
-}
-
-.past-event-card-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.past-event-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-}
-
-.past-event-card:hover .past-event-card-image img {
-  transform: scale(1.05);
 }
 
 .past-event-card-placeholder {
@@ -1045,16 +1021,6 @@ tbody tr:hover {
 
 .past-event-card-location::before {
   content: "\1F4CD ";
-}
-
-.past-event-card-photos {
-  font-size: 0.8rem;
-  color: var(--accent-dark);
-  font-weight: 600;
-}
-
-.past-event-card-photos::before {
-  content: "\1F4F7 ";
 }
 
 .past-events-empty {
@@ -1132,56 +1098,6 @@ tbody tr:hover {
   color: inherit;
 }
 
-/* Event Photo Gallery */
-.event-photo-gallery {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-  margin-top: 2rem;
-}
-
-.event-photo-gallery h2 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-.photo-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.photo-gallery-item {
-  margin: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease;
-}
-
-.photo-gallery-item:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.photo-gallery-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.photo-gallery-item figcaption {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  background: var(--light-gray);
-  text-align: center;
-}
-
 /* Mobile Responsive Styles for Events */
 @media (max-width: 768px) {
   .event-item {
@@ -1195,10 +1111,6 @@ tbody tr:hover {
 
   .past-events-grid {
     grid-template-columns: 1fr;
-  }
-
-  .photo-gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .dropdown-content {
