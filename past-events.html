@@ -19,15 +19,9 @@ subtitle: Recaps, photos, and highlights from ESUH events
 <div class="past-events-grid">
   {% for event in past_events %}
   <a href="{{ event.url | relative_url }}" class="past-event-card">
-    {% if event.image %}
-    <div class="past-event-card-image">
-      <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
-    </div>
-    {% else %}
     <div class="past-event-card-image past-event-card-placeholder">
       <span>ESUH</span>
     </div>
-    {% endif %}
     <div class="past-event-card-body">
       <span class="past-event-card-date">{{ event.event_date | date: "%B %d, %Y" }}</span>
       <h3 class="past-event-card-title">{{ event.title }}</h3>
@@ -36,9 +30,6 @@ subtitle: Recaps, photos, and highlights from ESUH events
       {% endif %}
       {% if event.location %}
       <span class="past-event-card-location">{{ event.location }}</span>
-      {% endif %}
-      {% if event.photos %}
-      <span class="past-event-card-photos">{{ event.photos | size }} photos</span>
       {% endif %}
     </div>
   </a>
@@ -57,8 +48,8 @@ subtitle: Recaps, photos, and highlights from ESUH events
   <p>To add a past event recap, create a markdown file in the <code>_events</code> folder:</p>
   <ol>
     <li>Name the file <code>YYYY-MM-DD-event-name.md</code> (e.g., <code>2025-09-15-fall-kickoff.md</code>)</li>
-    <li>Add event details in the front matter (title, date, location, photos)</li>
-    <li>Write your event recap in the body using markdown</li>
+    <li>Add event details in the front matter (title, date, location, description)</li>
+    <li>Write your event recap and embed images in the body using markdown</li>
     <li>Place event images in <code>assets/images/events/</code></li>
   </ol>
 
@@ -71,13 +62,9 @@ event_date: 2025-09-15
 time: "6:00 PM - 8:00 PM"
 location: "McElhinney Hall, Room 100"
 description: "Our first meeting of the fall semester."
-image: "/assets/images/events/fall-kickoff.jpg"
-photos:
-  - image: "/assets/images/events/fall-kickoff-1.jpg"
-    caption: "Members networking before the event"
-  - image: "/assets/images/events/fall-kickoff-2.jpg"
-    caption: "President giving the welcome address"
 ---
+
+![Fall kickoff meeting]({{ '/assets/images/events/fall-kickoff.jpg' | relative_url }})
 
 ## Event Recap
 
@@ -88,7 +75,9 @@ We kicked off the fall semester with a great turnout...
 - Over 50 students attended
 - Guest speaker from the Federal Reserve
 
-![Group photo]({{ '/assets/images/events/fall-kickoff-group.jpg' | relative_url }})</code></pre>
+![Group photo]({{ '/assets/images/events/fall-kickoff-group.jpg' | relative_url }})
+
+![Members networking]({{ '/assets/images/events/fall-kickoff-networking.jpg' | relative_url }})</code></pre>
 </div>
   </details>
 </div>

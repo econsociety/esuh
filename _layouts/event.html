@@ -6,12 +6,6 @@ layout: default
   <header class="event-header">
     <h1>{{ page.title }}</h1>
 
-    {% if page.image %}
-    <div class="event-featured-image">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    </div>
-    {% endif %}
-
     <div class="event-metadata">
       <div class="event-meta-item">
         <strong>📅 Date:</strong> {{ page.event_date | date: "%B %d, %Y" }}
@@ -41,22 +35,6 @@ layout: default
   <div class="event-content">
     {{ content }}
   </div>
-
-  {% if page.photos %}
-  <div class="event-photo-gallery">
-    <h2>Photos</h2>
-    <div class="photo-gallery-grid">
-      {% for photo in page.photos %}
-      <figure class="photo-gallery-item">
-        <img src="{{ photo.image | relative_url }}" alt="{% if photo.caption %}{{ photo.caption }}{% else %}{{ page.title }}{% endif %}" loading="lazy">
-        {% if photo.caption %}
-        <figcaption>{{ photo.caption }}</figcaption>
-        {% endif %}
-      </figure>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
 
   <footer class="event-footer">
     <a href="{{ '/events' | relative_url }}" class="back-link">← Back to Events</a>

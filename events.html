@@ -31,11 +31,6 @@ subtitle: ESUH events and activities
   <div class="events-list">
     {% for event in today_events %}
     <div class="event-item today-event">
-      {% if event.image %}
-      <div class="event-image">
-        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
-      </div>
-      {% endif %}
       <div class="event-content">
         <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
         <div class="event-meta">
@@ -69,11 +64,6 @@ subtitle: ESUH events and activities
   <div class="events-list">
     {% for event in upcoming_events %}
     <div class="event-item upcoming-event">
-      {% if event.image %}
-      <div class="event-image">
-        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
-      </div>
-      {% endif %}
       <div class="event-content">
         <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
         <div class="event-meta">
@@ -111,11 +101,6 @@ subtitle: ESUH events and activities
   <div class="events-list">
     {% for event in past_events %}
     <div class="event-item past-event">
-      {% if event.image %}
-      <div class="event-image">
-        <img src="{{ event.image | relative_url }}" alt="{{ event.title }}">
-      </div>
-      {% endif %}
       <div class="event-content">
         <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
         <div class="event-meta">
