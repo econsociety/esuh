@@ -35,7 +35,7 @@ After all that, it was time to mix around and have fun. People who came to the m
 Meeting notes:
 • Next meeting this Thursday at 5:30pm (2/12/2026). The Industry Insights Panel meeting will be taking place at T2 203.
 • Officer Intern Positions open (members preferred).
-• Membership costs $15 a semester and $25 a year.
+• Membership costs \$15 a semester and \$25 a year.
 • Tutoring for members and non-members, but members get the extra mile when it comes to tutoring and academic support.
 • Looking forward to a great semester ahead!
 
