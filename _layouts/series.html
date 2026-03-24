@@ -1,0 +1,48 @@
+---
+layout: page
+---
+
+{% if page.description %}
+<div class="series-info">
+  <p>{{ page.description }}</p>
+</div>
+{% endif %}
+
+<section class="series-installments">
+  <h2>Series Installments</h2>
+
+  {% assign series_papers = site.research | where: "working_paper_series", page.series_name | sort: "installment" %}
+
+  {% if series_papers.size > 0 %}
+  <div class="research-list">
+    {% for paper in series_papers %}
+    <div class="research-item">
+      <h3>
+        <span class="installment-badge">Installment {{ paper.installment }}</span>
+        <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+      </h3>
+
+      {% if paper.subtitle %}
+      <p class="subtitle">{{ paper.subtitle }}</p>
+      {% endif %}
+
+      <div class="research-meta">
+        <span class="author">By {{ paper.author }}</span>
+        <span class="divider">|</span>
+        <span class="date">{{ paper.date | date: "%B %d, %Y" }}</span>
+        {% if paper.topic %}
+        <span class="divider">|</span>
+        <span class="topic">{{ paper.topic }}</span>
+        {% endif %}
+      </div>
+
+      {% if paper.excerpt %}
+      <p class="research-excerpt">{{ paper.excerpt }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="color: #666;">No installments published yet.</p>
+  {% endif %}
+</section>

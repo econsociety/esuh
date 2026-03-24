@@ -4,15 +4,6 @@ description: Economics Society at the University of Houston
 baseurl: "/esuh" # the subpath of your site, e.g. /blog
 url: "https://econsociety.github.io" # the base hostname & protocol for your site
 
-# Author information
-authors:
-  isaac:
-    name: Isaac Turner
-    bio: Economics researcher at the University of Houston. Currently a Senior at UH, majoring in Mathematics with a minor in Economics. I'm interested in macroeconomics, international trade, and time series forecasting.
-  serena:
-    name: Serena Emeonye
-    bio: Economics researcher at the University of Houston
-
 # Build settings
 markdown: kramdown
 permalink: pretty
@@ -53,7 +44,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - README.md
 
 # Plugins
 plugins:

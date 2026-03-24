@@ -95,38 +95,27 @@ subtitle: ESUH events and activities
 </section>
 
 <!-- Past Events -->
+{% if past_events.size > 0 %}
 <section class="events-section">
   <h2 class="events-category-title">📚 Past Events</h2>
-  {% if past_events.size > 0 %}
-  <div class="events-list">
+  <div class="past-events-grid">
     {% for event in past_events %}
-    <div class="event-item past-event">
-      <div class="event-content">
-        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
-        <div class="event-meta">
-          <span class="event-date">📅 {{ event.event_date | date: "%B %d, %Y" }}</span>
-          {% if event.time %}
-          <span class="divider">|</span>
-          <span class="event-time">🕐 {{ event.time }}</span>
-          {% endif %}
-          {% if event.location %}
-          <span class="divider">|</span>
-          <span class="event-location">📍 {{ event.location }}</span>
-          {% endif %}
-        </div>
+    <a href="{{ event.url | relative_url }}" class="past-event-card">
+      <div class="past-event-card-image past-event-card-placeholder">
+        <span>ESUH</span>
+      </div>
+      <div class="past-event-card-body">
+        <span class="past-event-card-date">{{ event.event_date | date: "%B %d, %Y" }}</span>
+        <h3 class="past-event-card-title">{{ event.title }}</h3>
         {% if event.description %}
-        <p class="event-description">{{ event.description }}</p>
+        <p class="past-event-card-desc">{{ event.description }}</p>
         {% endif %}
-        {% if event.link %}
-        <p><a href="{{ event.link }}" class="event-link" target="_blank">Event Details →</a></p>
+        {% if event.location %}
+        <span class="past-event-card-location">📍 {{ event.location }}</span>
         {% endif %}
       </div>
-    </div>
+    </a>
     {% endfor %}
   </div>
-  {% else %}
-  <p style="color: var(--text-secondary); text-align: center; padding: 2rem 0;">
-    No past events to display yet.
-  </p>
-  {% endif %}
 </section>
+{% endif %}

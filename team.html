@@ -11,99 +11,17 @@ subtitle: Meet our officers and leadership
 </p>
 
 <div class="team-grid">
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/zoe-hancock-65ba672a0">President - Zoe Hancock</a></h3>
-    <img src="{{ '/assets/images/zoe-pic.jpg' | relative_url }}" alt="Zoe Hancock">
-    <p>
-      ()
-    </p>
+  {% for officer in site.data.officers %}
+  <div class="team-member" id="{{ officer.name | downcase | replace: ' ', '-' }}">
+    {% if officer.linkedin and officer.linkedin != '' %}
+    <h3><a href="{{ officer.linkedin }}">{{ officer.role }} - {{ officer.name }}</a></h3>
+    {% else %}
+    <h3>{{ officer.role }} - {{ officer.name }}</h3>
+    {% endif %}
+    <img src="{{ '/assets/images/' | append: officer.image | relative_url }}" alt="{{ officer.name }}">
+    {% if officer.bio and officer.bio != '' %}
+    <p>{{ officer.bio }}</p>
+    {% endif %}
   </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/isaacdturner/">Vice President - Isaac Turner</a></h3>
-    <img src="{{ '/assets/images/isaac-profile-pic.jpg' | relative_url }}" alt="Isaac Turner">
-    <p>
-      Isaac is a senior at UH majoring in Mathematics with a minor in Economics. He serves as VP and Economics Researcher for ESUH, and his research interests include macroeconomics, education, and international trade.
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/miyanda-clarke-62771b28a">Secretary - Miyanda Clarke</a></h3>
-    <img src="{{ '/assets/images/miyanda-pic.jpg' | relative_url }}" alt="Miyanda Clarke">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/muskan-ansari-123397246">Finance Officer - Muskan Ansari</a></h3>
-    <img src="{{ '/assets/images/muskan-pic.jpg' | relative_url }}" alt="Muskan Ansari">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/arthur-ridley">Marketing Officer - Arthur Ridley</a></h3>
-    <img src="{{ '/assets/images/arthur-pic.jpg' | relative_url }}" alt="Arthur Ridley">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/oscarcano1">Marketing Officer - Oscar Cano</a></h3>
-    <img src="{{ '/assets/images/oscar-pic.jpg' | relative_url }}" alt="Oscar Cano">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="">Economics Tutor - Hallie Krudy</a></h3>
-    <img src="{{ '/assets/images/hallie-pic.jpg' | relative_url }}" alt="Hallie Krudy">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/toby-phan-82886b286">Economics Tutor - Toby Phan</a></h3>
-    <img src="{{ '/assets/images/toby-pic.jpg' | relative_url }}" alt="Toby Phan">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/jake-ramirez-00bb7a284">Event Coordinator - Jake Ramirez</a></h3>
-    <img src="{{ '/assets/images/jake-pic.jpg' | relative_url }}" alt="Jake Ramirez">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/owais15">Event Coordinator - Owais Siddiqui</a></h3>
-    <img src="{{ '/assets/images/owais-pic.jpg' | relative_url }}" alt="Owais Siddiqui">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/serena-emeonye">Member Relations Officer - Serena Emeonye</a></h3>
-    <img src="{{ '/assets/images/serena-profile-pic.jpg' | relative_url }}" alt="Serena Emeonye">
-    <p>
-      ()
-    </p>
-  </div>
-
-  <div class="team-member">
-    <h3><a href="https://www.linkedin.com/in/andrew-economon">Member Relations Officer - Andrew Economon</a></h3>
-    <img src="{{ '/assets/images/andrew-pic.jpg' | relative_url }}" alt="Andrew Economon">
-    <p>
-      ()
-    </p>
-  </div>
+  {% endfor %}
 </div>

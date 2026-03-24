@@ -1,0 +1,25 @@
+# ESUH Research Author Profiles
+# ==============================
+# Add an entry here for each person who publishes research on the site.
+# The key (e.g., "isaac") must match the `author` field in research front matter.
+#
+# Fields:
+#   name: Full display name (required)
+#   bio:  Short biography shown on research pages (optional)
+#
+# Example usage in a research file:
+#   author: isaac
+#
+# To add a new author: copy a block and fill in the fields.
+
+isaac:
+  name: Isaac Turner
+  bio: Economics researcher at the University of Houston. Currently a Senior at UH, majoring in Mathematics with a minor in Economics. I'm interested in macroeconomics, international trade, and time series forecasting.
+
+serena:
+  name: Serena Emeonye
+  bio: Economics researcher at the University of Houston.
+
+corey:
+  name: Corey Maurice
+  bio: Economics researcher at the University of Houston.

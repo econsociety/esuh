@@ -17,13 +17,7 @@
           </div>
         </div>
         <a href="{{ '/team' | relative_url }}" {% if page.url contains '/team' %}class="active"{% endif %}>Team</a>
-        <div class="dropdown">
-          <a href="{{ '/events' | relative_url }}" {% if page.url contains '/events' or page.url contains '/past-events' or page.layout == 'event' %}class="active"{% endif %}>Events</a>
-          <div class="dropdown-content">
-            <a href="{{ '/events' | relative_url }}">All Events</a>
-            <a href="{{ '/past-events' | relative_url }}">Past Events</a>
-          </div>
-        </div>
+        <a href="{{ '/events' | relative_url }}" {% if page.url contains '/events' or page.layout == 'event' %}class="active"{% endif %}>Events</a>
       </nav>
     </div>
   </div>
