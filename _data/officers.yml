@@ -1,0 +1,87 @@
+# ESUH Officer Data
+# ==================
+# Edit this file to update officer information on the Team page.
+# Changes here automatically update the site - no HTML editing needed.
+#
+# Fields:
+#   name:     Full name (required)
+#   role:     Officer role/title (required)
+#   image:    Filename in /assets/images/ (required - use placeholder if no photo)
+#   linkedin: Full LinkedIn URL (optional - omit or leave blank if none)
+#   bio:      Short biography (optional - omit or leave blank)
+#
+# To add a new officer: copy a block below and fill in the fields.
+# To remove an officer: delete their block.
+# To reorder: cut and paste blocks in the order you want them to appear.
+
+- name: Zoe Hancock
+  role: President
+  image: zoe-pic.jpg
+  linkedin: https://www.linkedin.com/in/zoe-hancock-65ba672a0
+  bio:
+
+- name: Isaac Turner
+  role: Vice President
+  image: isaac-profile-pic.jpg
+  linkedin: https://www.linkedin.com/in/isaacdturner/
+  bio: Isaac is a senior at UH majoring in Mathematics with a minor in Economics. He serves as VP and Economics Researcher for ESUH, and his research interests include macroeconomics, education, and international trade.
+
+- name: Miyanda Clarke
+  role: Secretary
+  image: miyanda-pic.jpg
+  linkedin: https://www.linkedin.com/in/miyanda-clarke-62771b28a
+  bio:
+
+- name: Muskan Ansari
+  role: Finance Officer
+  image: muskan-pic.jpg
+  linkedin: https://www.linkedin.com/in/muskan-ansari-123397246
+  bio:
+
+- name: Arthur Ridley
+  role: Marketing Officer
+  image: arthur-pic.jpg
+  linkedin: https://www.linkedin.com/in/arthur-ridley
+  bio:
+
+- name: Oscar Cano
+  role: Marketing Officer
+  image: oscar-pic.jpg
+  linkedin: https://www.linkedin.com/in/oscarcano1
+  bio:
+
+- name: Hallie Krudy
+  role: Economics Tutor
+  image: hallie-pic.jpg
+  linkedin:
+  bio:
+
+- name: Toby Phan
+  role: Economics Tutor
+  image: toby-pic.jpg
+  linkedin: https://www.linkedin.com/in/toby-phan-82886b286
+  bio:
+
+- name: Jake Ramirez
+  role: Event Coordinator
+  image: jake-pic.jpg
+  linkedin: https://www.linkedin.com/in/jake-ramirez-00bb7a284
+  bio:
+
+- name: Owais Siddiqui
+  role: Event Coordinator
+  image: owais-pic.jpg
+  linkedin: https://www.linkedin.com/in/owais15
+  bio:
+
+- name: Serena Emeonye
+  role: Member Relations Officer
+  image: serena-profile-pic.jpg
+  linkedin: https://www.linkedin.com/in/serena-emeonye
+  bio:
+
+- name: Andrew Economon
+  role: Member Relations Officer
+  image: andrew-pic.jpg
+  linkedin: https://www.linkedin.com/in/andrew-economon
+  bio:

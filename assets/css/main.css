@@ -1098,6 +1098,117 @@ tbody tr:hover {
   color: inherit;
 }
 
+/* Working Paper Series - working-papers.html */
+.series-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.series-card {
+  background: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.series-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.series-meta {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.installment-count {
+  font-weight: 600;
+}
+
+.series-papers {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.paper-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--white);
+  border-radius: 4px;
+}
+
+.paper-item .badge {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.paper-item a {
+  flex: 1;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.paper-item a:hover {
+  color: var(--primary-color);
+}
+
+.paper-date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.view-series-button {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-series-button:hover {
+  background: var(--primary-dark);
+}
+
+/* Individual Series Pages - series layout */
+.series-info {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.series-installments {
+  margin-top: 2rem;
+}
+
+.installment-badge {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
 /* Mobile Responsive Styles for Events */
 @media (max-width: 768px) {
   .event-item {
