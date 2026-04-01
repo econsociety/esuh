@@ -22,75 +22,47 @@ subtitle: Browse all research papers and working papers
 </div>
 
 <div class="research-list">
-  {% assign sorted_research = site.research | sort: 'date' | reverse %}
-  {% for research in sorted_research %}
+  {% assign all_content = site.research | concat: site.dynamic_analyses | sort: 'date' | reverse %}
+  {% for item in all_content %}
   <div class="research-item"
-       data-topic="{{ research.topic }}"
-       data-title="{{ research.title | downcase }}"
-       data-author="{{ research.author | downcase }}">
-    <h3><a href="{{ research.url | relative_url }}">{{ research.title }}</a></h3>
-
-    {% if research.subtitle %}
-    <p class="subtitle">{{ research.subtitle }}</p>
-    {% endif %}
-
-    <div class="research-meta">
-      <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
-      <span class="divider">|</span>
-      <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
-      {% if research.topic %}
-      <span class="divider">|</span>
-      <span class="topic">{{ research.topic }}</span>
-      {% endif %}
-      {% if research.working_paper %}
-      <span class="divider">|</span>
-      <span class="working-paper">{% if research.working_paper_series %}{{ research.working_paper_series }}{% else %}Working Paper{% endif %}{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
-      {% endif %}
-    </div>
-
-    {% if research.excerpt %}
-    <p class="research-excerpt">{{ research.excerpt }}</p>
-    {% endif %}
-
-    {% if research.working_paper and research.working_paper_series %}
-    <p class="series-link">
-      <a href="{{ '/working-papers/' | append: research.working_paper_series | downcase | replace: ' ', '-' | relative_url }}" class="series-button">
-        View {{ research.working_paper_series }} Series →
-      </a>
-    </p>
-    {% endif %}
-  </div>
-  {% endfor %}
-
-  {% assign sorted_dynamic = site.dynamic_analyses | sort: 'date' | reverse %}
-  {% for analysis in sorted_dynamic %}
-  <div class="research-item"
-       data-topic="{{ analysis.topic }}"
-       data-title="{{ analysis.title | downcase }}"
-       data-author="{{ analysis.author | downcase }}">
+       data-topic="{{ item.topic }}"
+       data-title="{{ item.title | downcase }}"
+       data-author="{{ item.author | downcase }}">
     <h3>
-      <a href="{{ analysis.url | relative_url }}">{{ analysis.title }}</a>
-      <span class="dynamic-badge">Dynamic</span>
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      {% if item.analysis %}<span class="dynamic-badge">Dynamic</span>{% endif %}
     </h3>
 
-    {% if analysis.subtitle %}
-    <p class="subtitle">{{ analysis.subtitle }}</p>
+    {% if item.subtitle %}
+    <p class="subtitle">{{ item.subtitle }}</p>
     {% endif %}
 
     <div class="research-meta">
-      {% if analysis.author %}
-      <span class="author">By {% assign author_slug = analysis.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ analysis.author }}</a></span>
+      {% if item.author %}
+      <span class="author">By {% assign author_slug = item.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ item.author }}</a></span>
       <span class="divider">|</span>
       {% endif %}
-      <span class="date">{{ analysis.date | date: "%B %d, %Y" }}</span>
-      {% if analysis.topic %}
+      <span class="date">{{ item.date | date: "%B %d, %Y" }}</span>
+      {% if item.topic %}
       <span class="divider">|</span>
-      <span class="topic">{{ analysis.topic }}</span>
+      <span class="topic">{{ item.topic }}</span>
+      {% endif %}
+      {% if item.working_paper %}
+      <span class="divider">|</span>
+      <span class="working-paper">{% if item.working_paper_series %}{{ item.working_paper_series }}{% else %}Working Paper{% endif %}{% if item.installment %} - Installment {{ item.installment }}{% endif %}</span>
       {% endif %}
     </div>
 
-    {% if analysis.excerpt %}
-    <p class="research-excerpt">{{ analysis.excerpt }}</p>
+    {% if item.excerpt %}
+    <p class="research-excerpt">{{ item.excerpt }}</p>
+    {% endif %}
+
+    {% if item.working_paper and item.working_paper_series %}
+    <p class="series-link">
+      <a href="{{ '/working-papers/' | append: item.working_paper_series | downcase | replace: ' ', '-' | relative_url }}" class="series-button">
+        View {{ item.working_paper_series }} Series →
+      </a>
+    </p>
     {% endif %}
   </div>
   {% endfor %}

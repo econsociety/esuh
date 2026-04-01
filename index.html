@@ -6,7 +6,7 @@ title: Home
 <div class="home-hero">
   <h1>Economics Society at the University of Houston</h1>
   <p>Connecting students through economics research, events, and community</p>
-  <a href="/esuh/research" class="cta-button">Browse Research</a>
+  <a href="{{ '/research' | relative_url }}" class="cta-button">Browse Research</a>
 </div>
 
 <section class="home-section">
@@ -58,7 +58,7 @@ title: Home
     {% endfor %}
   </div>
   <p style="text-align: center; margin-top: 2rem;">
-    <a href="/esuh/events" style="color: var(--primary-color); font-weight: 600;">View all events →</a>
+    <a href="{{ '/events' | relative_url }}" style="color: var(--primary-color); font-weight: 600;">View all events →</a>
   </p>
   {% else %}
   <p style="color: var(--text-secondary);">
@@ -69,54 +69,44 @@ title: Home
 
 <section class="home-section">
   <h2>Recent Research</h2>
-  {% assign featured_research = "" | split: "" %}
-  {% assign sorted_research = site.research | sort: 'date' | reverse %}
-  {% for research in sorted_research %}
-    {% if research.featured == true %}
-      {% assign featured_research = featured_research | push: research %}
-    {% endif %}
-  {% endfor %}
-  {% assign recent_research = featured_research %}
-  {% if recent_research.size > 0 %}
+  {% assign all_recent = site.research | concat: site.dynamic_analyses | sort: 'date' | reverse | slice: 0, 3 %}
+  {% if all_recent.size > 0 %}
   <div class="research-list">
-    {% for research in recent_research %}
+    {% for item in all_recent %}
     <div class="research-item">
-      <h3><a href="{{ research.url | relative_url }}">{{ research.title }}</a></h3>
+      <h3>
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% if item.analysis %}<span class="dynamic-badge">Dynamic</span>{% endif %}
+      </h3>
 
-      {% if research.subtitle %}
-      <p class="subtitle">{{ research.subtitle }}</p>
+      {% if item.subtitle %}
+      <p class="subtitle">{{ item.subtitle }}</p>
       {% endif %}
 
       <div class="research-meta">
-        <span class="author">By {% assign author_slug = research.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ research.author }}</a></span>
+        {% if item.author %}
+        <span class="author">By {% assign author_slug = item.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ item.author }}</a></span>
         <span class="divider">|</span>
-        <span class="date">{{ research.date | date: "%B %d, %Y" }}</span>
-        {% if research.topic %}
-        <span class="divider">|</span>
-        <span class="topic">{{ research.topic }}</span>
         {% endif %}
-        {% if research.working_paper %}
+        <span class="date">{{ item.date | date: "%B %d, %Y" }}</span>
+        {% if item.topic %}
         <span class="divider">|</span>
-        <span class="working-paper">{% if research.working_paper_series %}{{ research.working_paper_series }}{% else %}Working Paper{% endif %}{% if research.installment %} - Installment {{ research.installment }}{% endif %}</span>
+        <span class="topic">{{ item.topic }}</span>
+        {% endif %}
+        {% if item.working_paper %}
+        <span class="divider">|</span>
+        <span class="working-paper">{% if item.working_paper_series %}{{ item.working_paper_series }}{% else %}Working Paper{% endif %}{% if item.installment %} - Installment {{ item.installment }}{% endif %}</span>
         {% endif %}
       </div>
 
-      {% if research.excerpt %}
-      <p class="research-excerpt">{{ research.excerpt }}</p>
-      {% endif %}
-
-      {% if research.working_paper and research.working_paper_series %}
-      <p class="series-link">
-        <a href="{{ '/working-papers/' | append: research.working_paper_series | downcase | replace: ' ', '-' | relative_url }}" class="series-button">
-          View {{ research.working_paper_series }} Series →
-        </a>
-      </p>
+      {% if item.excerpt %}
+      <p class="research-excerpt">{{ item.excerpt }}</p>
       {% endif %}
     </div>
     {% endfor %}
   </div>
   <p style="text-align: center; margin-top: 2rem;">
-    <a href="/esuh/research" style="color: var(--primary-color); font-weight: 600;">View all research →</a>
+    <a href="{{ '/research' | relative_url }}" style="color: var(--primary-color); font-weight: 600;">View all research →</a>
   </p>
   {% else %}
   <p style="color: var(--text-secondary);">

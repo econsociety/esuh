@@ -2,21 +2,22 @@
 
 This is the website for the Economics Society at the University of Houston (ESUH), built with [Jekyll](https://jekyllrb.com/) and hosted on [GitHub Pages](https://econsociety.github.io/esuh).
 
-Everything on this site is driven by simple text files — no coding required for day-to-day updates. This guide covers the three most common tasks: managing events, publishing research, and updating officer information.
+Everything on this site is driven by simple text files — no coding required for day-to-day updates. This guide covers every common task.
 
 ---
 
 ## Quick Reference
 
-| Task | How |
+| Task | Where |
 |---|---|
 | Add / edit an event | Create or edit a file in `_events/` |
-| Add research | Create a file in `_research/` |
+| Add a research paper | Create a file in `_research/` |
+| Add an interactive analysis | Create a file in `_dynamic_analyses/` + a data file in `assets/data/` |
 | Update officer info | Edit `_data/officers.yml` |
 | Add a research author | Edit `_data/authors.yml` |
 | Add a working paper series | Create a file in `working-papers/` |
 
-All changes take effect automatically after committing to the main branch — no manual rebuilds needed.
+All changes take effect automatically after committing to the `main` branch — no manual rebuilds needed.
 
 ---
 
@@ -26,8 +27,7 @@ All changes take effect automatically after committing to the main branch — no
 
 Events are stored as Markdown files in the `_events/` folder. Their status updates **automatically** based on today's date — you never need to move files around or change a status field:
 
-- **Today** — event date matches today (highlighted green)
-- **Upcoming** — event date is in the future
+- **Upcoming** — event date is in the future (shown on the homepage and Events page)
 - **Past** — event date has passed (shown as a card grid on the Events page)
 
 ### Adding an event
@@ -77,7 +77,7 @@ Recommended: JPG or PNG, under 500 KB, 800×600 px or similar.
 
 ### How research works
 
-Research papers are stored as Markdown files in `_research/`. They appear automatically on the Research page, sorted by date. Papers marked `featured: true` also appear on the homepage.
+Research papers are stored as Markdown files in `_research/`. They appear automatically on the Research page and homepage, sorted by date with the most recent first. The **3 most recent** pieces (papers and/or dynamic analyses) are shown automatically on the homepage — no extra configuration needed.
 
 The Research page includes a **topic filter** that populates itself from whatever topics exist in the files — no configuration needed.
 
@@ -96,7 +96,6 @@ author: isaac
 date: 2026-03-15
 topic: Labor Economics
 excerpt: "One or two sentence summary that appears on the research listing page."
-featured: false
 ---
 ```
 
@@ -114,7 +113,7 @@ $$\hat{\beta} = (X'X)^{-1}X'y$$
 ```
 
 **Required fields:** `title`, `author`, `date`, `topic`
-**Optional fields:** `subtitle`, `excerpt`, `featured`, `working_paper`, `working_paper_series`, `installment`, `citations`
+**Optional fields:** `subtitle`, `excerpt`, `working_paper`, `working_paper_series`, `installment`, `citations`
 
 ### Author keys
 
@@ -124,28 +123,15 @@ The `author` field must match a key in `_data/authors.yml`. Currently available:
 - `serena` — Serena Emeonye
 - `corey` — Corey Maurice
 
-To add a new author, add an entry to `_data/authors.yml` (see Officers section for the pattern).
+To add a new author, add an entry to `_data/authors.yml` (see the Officers section for the pattern).
 
-### Available topics
+### Topics
 
-Use these topic names consistently so the filter works correctly:
+Use consistent topic names so the filter works correctly. You can use any value — new ones appear in the filter automatically. Some examples in use:
 
-- Labor Economics
-- Macroeconomics
-- Microeconomics
-- International Economics
-- Development Economics
-- Urban Economics
-- Public Economics
-- Health Economics
-- Environmental Economics
-- Behavioral Economics
-- Econometrics
-- Economic History
-- Education
-- Market Economics
-
-You can use any topic — new ones appear in the filter automatically.
+- Labor Economics, Macroeconomics, Microeconomics
+- Education, Market Economics, Economic Development
+- Econometrics, Public Economics, Environmental Economics
 
 ### Citations
 
@@ -155,7 +141,7 @@ citations:
   - "https://doi.org/10.xxxx/example"
 ```
 
-URLs in citations are automatically turned into links.
+URLs in citations are automatically turned into clickable links.
 
 ### Working paper series
 
@@ -183,7 +169,53 @@ description: "A short description of what this series is about."
 ---
 ```
 
-The series page automatically lists all papers whose `working_paper_series` matches `series_name`. No other code needed.
+The series page automatically lists all papers whose `working_paper_series` matches `series_name`.
+
+---
+
+## Dynamic Analyses
+
+Dynamic analyses are interactive tools — the reader uses dropdowns and buttons to run statistical comparisons directly in the browser. They appear on the Research page alongside regular papers (with a red "Dynamic" badge) and are included in the homepage's "3 most recent" feed.
+
+### How they work
+
+Each dynamic analysis has two parts:
+
+| Part | Location | What it does |
+|---|---|---|
+| Data file | `assets/data/<name>.json` | The dataset the tool reads at runtime |
+| Analysis file | `_dynamic_analyses/<slug>.md` | Front matter config + prose explanation |
+
+### Adding a dynamic analysis
+
+1. **Prepare your data file** — place a `.json` file in `assets/data/`. See `assets/data/README-grades-schema.md` for the grades data schema. Name it descriptively, e.g. `grades-econ-2026.json`.
+
+2. **Create the analysis file** in `_dynamic_analyses/`:
+
+```yaml
+---
+title: "Instructor Grade Comparison"
+subtitle: "Compare grade distributions between two instructors"
+layout: dynamic-analysis
+dataset: grades-econ-2026        # filename in assets/data/, without .json
+topic: Education
+excerpt: "Short description shown on the research listing card."
+date: 2026-04-01
+author: isaac
+ui:
+  min_students: 20               # hide instructors with fewer students than this
+analysis:
+  type: group_comparison
+  group_by: instructor
+---
+
+Write 2–4 paragraphs here explaining what the tool does, how to read
+the results, and any important limitations or caveats.
+```
+
+3. Commit both files and push to `main`.
+
+For a detailed walkthrough — including how to structure data, test locally, and add new analysis types — see the **[Contributor Guide](/esuh/dynamic-analysis-guide/)** on the live site, or read `dynamic-analysis-guide.md` in this repository.
 
 ---
 
@@ -228,30 +260,38 @@ Delete their block from `_data/officers.yml`.
 ```
 esuh/
 ├── _data/
-│   ├── officers.yml       ← Edit to update the Team page
-│   └── authors.yml        ← Edit to add research authors
-├── _events/               ← One .md file per event
-├── _research/             ← One .md file per research paper
-├── _layouts/
-│   ├── default.html       ← Master template (header/footer)
-│   ├── page.html          ← Generic page template
-│   ├── research.html      ← Research paper template
-│   ├── event.html         ← Event page template
-│   └── series.html        ← Working paper series template
-├── _includes/
-│   ├── header.html        ← Site navigation
-│   └── footer.html        ← Site footer
-├── working-papers/        ← One .html file per series (front matter only)
+│   ├── officers.yml            ← Edit to update the Team page
+│   └── authors.yml             ← Edit to add research authors
+├── _events/                    ← One .md file per event
+├── _research/                  ← One .md file per research paper
+├── _dynamic_analyses/          ← One .md file per interactive analysis
+├── working-papers/             ← One .html file per series (front matter only)
 ├── assets/
-│   ├── css/main.css       ← All styles
-│   ├── js/main.js         ← Research page filtering
-│   └── images/            ← All images (events/ subfolder for event photos)
-├── index.html             ← Homepage
-├── research.html          ← Research archive
-├── events.html            ← All events (auto-sorted by date)
-├── team.html              ← Team page (auto-built from _data/officers.yml)
-├── working-papers.html    ← Working paper series index
-└── _config.yml            ← Site settings
+│   ├── css/main.css            ← All styles
+│   ├── data/                   ← JSON datasets for dynamic analyses
+│   ├── js/
+│   │   ├── main.js             ← Research page filtering
+│   │   ├── analysis-engine.js  ← Dynamic analysis framework
+│   │   ├── interpretations.js  ← Statistical interpretation text
+│   │   └── charts/             ← Chart rendering (Chart.js wrappers)
+│   └── images/                 ← All images (events/ subfolder for event photos)
+├── _layouts/
+│   ├── default.html            ← Master template (header/footer)
+│   ├── page.html               ← Generic page template
+│   ├── research.html           ← Research paper template
+│   ├── dynamic-analysis.html   ← Interactive analysis template
+│   ├── event.html              ← Event page template
+│   └── series.html             ← Working paper series template
+├── _includes/
+│   ├── header.html             ← Site navigation
+│   └── footer.html             ← Site footer
+├── index.html                  ← Homepage
+├── research.html               ← Research archive (all types, sorted by date)
+├── events.html                 ← All events (auto-sorted by date)
+├── team.html                   ← Team page (auto-built from _data/officers.yml)
+├── working-papers.html         ← Working paper series index
+├── dynamic-analysis-guide.md   ← Contributor guide for dynamic analyses
+└── _config.yml                 ← Site settings (rarely needs editing)
 ```
 
 ---
