@@ -14,32 +14,25 @@
 
   var _chartInstance = null;
 
-  // ── Summary stat row ────────────────────────────────────────────
+  // ── Summary stats table ──────────────────────────────────────────
 
   function buildSummaryRow(results) {
     var a = results.instructorA;
     var b = results.instructorB;
 
-    function row(inst) {
+    function row(inst, color) {
       return '<div class="ae-summary-row">'
+        + '<span class="ae-legend-swatch" style="background:' + color + '"></span>'
         + '<span class="ae-summary-name">' + inst.name + '</span>'
-        + '<span class="ae-summary-stat">Avg GPA: <strong>' + inst.avg_gpa.toFixed(2) + '</strong></span>'
-        + '<span class="ae-summary-sep">\u2502</span>'
-        + '<span class="ae-summary-stat">% A: <strong>' + Math.round(inst.pct_a * 100) + '%</strong></span>'
-        + '<span class="ae-summary-sep">\u2502</span>'
-        + '<span class="ae-summary-stat">n = <strong>' + inst.n_students + ' students</strong></span>'
+        + '<span class="ae-summary-stat">Avg GPA<br><strong>' + inst.avg_gpa.toFixed(2) + '</strong></span>'
+        + '<span class="ae-summary-stat">% A<br><strong>' + Math.round(inst.pct_a * 100) + '%</strong></span>'
+        + '<span class="ae-summary-stat">Students<br><strong>' + inst.n_students + '</strong></span>'
         + '</div>';
     }
 
     return '<div class="ae-summary">'
-      + '<div class="ae-summary-legend">'
-      + '<span class="ae-legend-swatch" style="background:' + COLOR_A + '"></span>'
-      + row(a)
-      + '</div>'
-      + '<div class="ae-summary-legend">'
-      + '<span class="ae-legend-swatch" style="background:' + COLOR_B + '"></span>'
-      + row(b)
-      + '</div>'
+      + row(a, COLOR_A)
+      + row(b, COLOR_B)
       + '</div>';
   }
 
@@ -88,13 +81,22 @@
       _chartInstance = null;
     }
 
-    // Clear container and build structure
+    // Clear container and build results card
     container.innerHTML = '';
 
-    // Summary row
+    var card = document.createElement('div');
+    card.className = 'ae-results-card';
+
+    // Results heading
+    var heading = document.createElement('p');
+    heading.className = 'ae-results-title';
+    heading.textContent = 'Comparison Results';
+    card.appendChild(heading);
+
+    // Summary stats table
     var summaryEl = document.createElement('div');
     summaryEl.innerHTML = buildSummaryRow(results);
-    container.appendChild(summaryEl);
+    card.appendChild(summaryEl);
 
     // Canvas wrapper
     var canvasWrapper = document.createElement('div');
@@ -102,7 +104,7 @@
     var canvas = document.createElement('canvas');
     canvas.id = 'ae-bar-chart';
     canvasWrapper.appendChild(canvas);
-    container.appendChild(canvasWrapper);
+    card.appendChild(canvasWrapper);
 
     // Interpretation
     var interpEl = document.createElement('div');
@@ -110,7 +112,9 @@
     if (typeof Interpretations !== 'undefined') {
       interpEl.innerHTML = Interpretations.grade_comparison(results);
     }
-    container.appendChild(interpEl);
+    card.appendChild(interpEl);
+
+    container.appendChild(card);
 
     // Detect dark mode via CSS variable (falls back to white)
     var styles = getComputedStyle(document.documentElement);

@@ -213,9 +213,24 @@
 
     widget.innerHTML = '';
 
-    // ── Controls form ──────────────────────────────────────────────
+    // ── Controls card ─────────────────────────────────────────────
     var form = document.createElement('div');
     form.className = 'analysis-controls';
+
+    // Header
+    var header = document.createElement('div');
+    header.className = 'ae-controls-header';
+    header.innerHTML =
+      '<div class="ae-controls-header-icon">'
+      + '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">'
+      + '<path d="M2 4h12v1.5H2zm2 3h8v1.5H4zm2 3h4v1.5H6z"/>'
+      + '</svg></div>'
+      + '<h4>Configure Comparison</h4>';
+    form.appendChild(header);
+
+    // 2-column dropdown grid
+    var grid = document.createElement('div');
+    grid.className = 'ae-dropdowns-grid';
 
     // Subject dropdown
     var subjectGroup = makeFieldGroup('Subject');
@@ -233,7 +248,7 @@
       subjectSel.appendChild(opt);
     });
     subjectGroup.appendChild(subjectSel);
-    form.appendChild(subjectGroup);
+    grid.appendChild(subjectGroup);
 
     // Catalog dropdown
     var catalogGroup = makeFieldGroup('Course');
@@ -243,7 +258,7 @@
     catalogSel.disabled = true;
     setBlankOption(catalogSel, '— Select course —');
     catalogGroup.appendChild(catalogSel);
-    form.appendChild(catalogGroup);
+    grid.appendChild(catalogGroup);
 
     // Instructor A dropdown
     var instAGroup = makeFieldGroup('Instructor A');
@@ -253,7 +268,7 @@
     instASel.disabled = true;
     setBlankOption(instASel, '— Select instructor —');
     instAGroup.appendChild(instASel);
-    form.appendChild(instAGroup);
+    grid.appendChild(instAGroup);
 
     // Instructor B dropdown
     var instBGroup = makeFieldGroup('Instructor B');
@@ -263,47 +278,71 @@
     instBSel.disabled = true;
     setBlankOption(instBSel, '— Select instructor —');
     instBGroup.appendChild(instBSel);
-    form.appendChild(instBGroup);
+    grid.appendChild(instBGroup);
 
-    // Metric toggle
-    var metricGroup = makeFieldGroup('Metric');
-    metricGroup.className += ' ae-metric-group';
-    var metrics = [
+    form.appendChild(grid);
+
+    // Divider
+    var divider = document.createElement('hr');
+    divider.className = 'ae-controls-divider';
+    form.appendChild(divider);
+
+    // Bottom row: metric pill toggle + run button
+    var bottom = document.createElement('div');
+    bottom.className = 'ae-controls-bottom';
+
+    // Metric pill toggle
+    var metricField = document.createElement('div');
+    metricField.className = 'ae-metric-field';
+    var metricLabel = document.createElement('label');
+    metricLabel.className = 'ae-label';
+    metricLabel.textContent = 'Metric';
+    metricField.appendChild(metricLabel);
+
+    var pillToggle = document.createElement('div');
+    pillToggle.className = 'ae-pill-toggle';
+    pillToggle.id = 'ae-metric-toggle';
+    var activeMetric = 'avg_gpa';
+    var metricDefs = [
       { value: 'avg_gpa', label: 'Average GPA' },
       { value: 'pct_a',   label: '% Receiving an A' }
     ];
-    metrics.forEach(function (m, i) {
-      var label = document.createElement('label');
-      label.className = 'ae-metric-label';
-      var radio = document.createElement('input');
-      radio.type = 'radio';
-      radio.name = 'ae-metric';
-      radio.value = m.value;
-      radio.id = 'ae-metric-' + m.value;
-      if (i === 0) radio.checked = true;
-      label.appendChild(radio);
-      label.appendChild(document.createTextNode(' ' + m.label));
-      metricGroup.appendChild(label);
+    metricDefs.forEach(function (m) {
+      var pill = document.createElement('button');
+      pill.type = 'button';
+      pill.className = 'ae-pill' + (m.value === activeMetric ? ' ae-pill--active' : '');
+      pill.dataset.metric = m.value;
+      pill.textContent = m.label;
+      pill.addEventListener('click', function () {
+        activeMetric = m.value;
+        pillToggle.querySelectorAll('.ae-pill').forEach(function (p) {
+          p.classList.toggle('ae-pill--active', p.dataset.metric === activeMetric);
+        });
+      });
+      pillToggle.appendChild(pill);
     });
-    form.appendChild(metricGroup);
+    metricField.appendChild(pillToggle);
+    bottom.appendChild(metricField);
 
     // Run button
     var runBtn = document.createElement('button');
     runBtn.id = 'ae-run-btn';
+    runBtn.type = 'button';
     runBtn.className = 'ae-run-btn';
     runBtn.textContent = 'Run Comparison';
     runBtn.disabled = true;
-    form.appendChild(runBtn);
+    bottom.appendChild(runBtn);
 
+    form.appendChild(bottom);
     widget.appendChild(form);
 
-    // ── Results container ──────────────────────────────────────────
+    // ── Results container ─────────────────────────────────────────
     var resultsDiv = document.createElement('div');
     resultsDiv.id = 'ae-results';
     resultsDiv.className = 'ae-results';
     widget.appendChild(resultsDiv);
 
-    // ── Event wiring ───────────────────────────────────────────────
+    // ── Event wiring ──────────────────────────────────────────────
 
     subjectSel.addEventListener('change', function () {
       var subject = subjectSel.value;
@@ -336,7 +375,7 @@
       var catalog = catalogSel.value;
       var instA = instASel.value;
       var instB = instBSel.value;
-      var metric = (document.querySelector('input[name="ae-metric"]:checked') || {}).value || 'avg_gpa';
+      var metric = activeMetric;
 
       var analysisType = (anCfg.type || 'group_comparison');
       var handler = types[analysisType];
@@ -357,7 +396,6 @@
       }
 
       resultsDiv.innerHTML = '';
-      // Pass resultsDiv id so chart can mount inside it
       handler.render(results, uiCfg, resultsDiv);
     });
   }
