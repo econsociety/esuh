@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<script>
+  window.ANALYSIS_CONFIG = {{ page.analysis | jsonify }};
+  window.UI_CONFIG       = {{ page.ui       | jsonify }};
+  window.DATASET_PATH    = "{{ site.baseurl }}/assets/data/{{ page.dataset }}.json";
+</script>
+
+<div class="container">
+  <article class="dynamic-analysis-page">
+
+    <header class="research-header">
+      <h1 class="research-title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="research-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      <div class="research-meta">
+        {% if page.author %}
+        <span class="author">By {% assign author_slug = page.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ page.author }}</a></span>
+        <span class="divider">|</span>
+        {% endif %}
+        <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.topic %}
+        <span class="divider">|</span>
+        <span class="topic">{{ page.topic }}</span>
+        {% endif %}
+        <span class="divider">|</span>
+        <span class="dynamic-badge">Dynamic</span>
+      </div>
+    </header>
+
+    <div class="research-body">
+      {{ content }}
+    </div>
+
+    <div id="analysis-widget" class="analysis-widget">
+      <p class="widget-loading">Loading analysis tool&hellip;</p>
+    </div>
+
+  </article>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="{{ '/assets/js/analysis-engine.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/interpretations.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/charts/grouped-bar.js' | relative_url }}"></script>

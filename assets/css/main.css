@@ -1209,6 +1209,229 @@ tbody tr:hover {
   margin-right: 0.5rem;
 }
 
+/* ── Dynamic Analysis badge ───────────────────────────────────────── */
+.dynamic-badge {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+/* ── Dynamic Analysis page layout ────────────────────────────────── */
+.dynamic-analysis-page {
+  max-width: var(--content-width);
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.analysis-widget {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--accent-color);
+  padding-top: 1.5rem;
+}
+
+.widget-loading {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ── Analysis controls ────────────────────────────────────────────── */
+.analysis-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.ae-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ae-metric-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ae-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.ae-select {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-color);
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 4px;
+  padding: 0.45rem 0.65rem;
+  width: 100%;
+}
+
+.ae-select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 1px;
+}
+
+.ae-metric-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.ae-run-btn {
+  grid-column: 1 / -1;
+  align-self: end;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  max-width: 220px;
+}
+
+.ae-run-btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.ae-run-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Results area ─────────────────────────────────────────────────── */
+.ae-results {
+  margin-top: 0.5rem;
+}
+
+.ae-error {
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem 0;
+}
+
+/* ── Summary stats ────────────────────────────────────────────────── */
+.ae-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 5px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+}
+
+.ae-summary-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ae-legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.ae-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+}
+
+.ae-summary-name {
+  font-weight: 700;
+  color: var(--text-color);
+  min-width: 160px;
+}
+
+.ae-summary-stat {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.ae-summary-sep {
+  color: var(--medium-gray);
+}
+
+/* ── Chart ────────────────────────────────────────────────────────── */
+.ae-chart-wrapper {
+  position: relative;
+  max-height: 380px;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Interpretation text ──────────────────────────────────────────── */
+.ae-interpretation-wrapper {
+  margin-top: 0.5rem;
+}
+
+.ae-interpretation {
+  background: var(--light-gray);
+  border-left: 4px solid var(--accent-color);
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 5px 5px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.ae-interpretation--significant {
+  border-left-color: var(--primary-color);
+}
+
+.ae-footnote {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-gray);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .analysis-controls {
+    grid-template-columns: 1fr;
+  }
+  .ae-run-btn {
+    max-width: 100%;
+  }
+  .ae-summary-name {
+    min-width: auto;
+  }
+}
+
 /* Mobile Responsive Styles for Events */
 @media (max-width: 768px) {
   .event-item {

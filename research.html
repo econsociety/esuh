@@ -9,8 +9,10 @@ subtitle: Browse all research papers and working papers
     <label for="topic-filter">Filter by Topic:</label>
     <select id="topic-filter">
       <option value="">All Topics</option>
-      {% assign topics = site.research | map: 'topic' | uniq | sort %}
-      {% for topic in topics %}
+      {% assign research_topics = site.research | map: 'topic' %}
+      {% assign dynamic_topics = site.dynamic_analyses | map: 'topic' %}
+      {% assign all_topics = research_topics | concat: dynamic_topics | uniq | sort %}
+      {% for topic in all_topics %}
         {% if topic %}
         <option value="{{ topic }}">{{ topic }}</option>
         {% endif %}
@@ -59,9 +61,42 @@ subtitle: Browse all research papers and working papers
     {% endif %}
   </div>
   {% endfor %}
+
+  {% assign sorted_dynamic = site.dynamic_analyses | sort: 'date' | reverse %}
+  {% for analysis in sorted_dynamic %}
+  <div class="research-item"
+       data-topic="{{ analysis.topic }}"
+       data-title="{{ analysis.title | downcase }}"
+       data-author="{{ analysis.author | downcase }}">
+    <h3>
+      <a href="{{ analysis.url | relative_url }}">{{ analysis.title }}</a>
+      <span class="dynamic-badge">Dynamic</span>
+    </h3>
+
+    {% if analysis.subtitle %}
+    <p class="subtitle">{{ analysis.subtitle }}</p>
+    {% endif %}
+
+    <div class="research-meta">
+      {% if analysis.author %}
+      <span class="author">By {% assign author_slug = analysis.author | downcase | replace: ' ', '-' %}<a href="{{ '/team#' | append: author_slug | relative_url }}">{{ analysis.author }}</a></span>
+      <span class="divider">|</span>
+      {% endif %}
+      <span class="date">{{ analysis.date | date: "%B %d, %Y" }}</span>
+      {% if analysis.topic %}
+      <span class="divider">|</span>
+      <span class="topic">{{ analysis.topic }}</span>
+      {% endif %}
+    </div>
+
+    {% if analysis.excerpt %}
+    <p class="research-excerpt">{{ analysis.excerpt }}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
 </div>
 
-{% if site.research.size == 0 %}
+{% if site.research.size == 0 and site.dynamic_analyses.size == 0 %}
 <p style="text-align: center; color: #666; padding: 3rem 0;">
   No research papers have been published yet. Check back soon!
 </p>

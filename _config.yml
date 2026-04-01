@@ -16,6 +16,9 @@ collections:
   events:
     output: true
     permalink: /events/:title/
+  dynamic_analyses:
+    output: true
+    permalink: /dynamic/:name/
 
 # Defaults
 defaults:
