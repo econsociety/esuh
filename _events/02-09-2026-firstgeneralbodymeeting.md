@@ -7,8 +7,6 @@ description: Our very first meeting of the Spring 2026 semester!
 image: /assets/images/events/26spFGBM-2.jpg
 ---
 
-Write event recap in markdown here...
-
 
 Economics Society at the University of Houston First General Body Meeting
 
