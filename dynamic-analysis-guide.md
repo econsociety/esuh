@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dynamic Analysis: Contributor Guide"
-subtitle: "How to add new interactive analyses and datasets to the site"
+subtitle: "How to add a new interactive analysis to the site"
 ---
 
 This guide is for ESUH members who want to publish a new Dynamic Analysis — an interactive, data-driven tool — on the research pages. No build tools or Node.js are required; everything runs as plain HTML, CSS, and JavaScript directly in the browser.
@@ -10,21 +10,37 @@ This guide is for ESUH members who want to publish a new Dynamic Analysis — an
 
 ## Overview
 
-Each Dynamic Analysis has three parts:
+Each Dynamic Analysis is fully self-contained in its own folder. Nothing is shared between analyses.
 
-| Part | Location | Purpose |
-|---|---|---|
-| Dataset | `assets/data/<name>.json` | The underlying data the tool reads at runtime |
-| Analysis file | `_dynamic_analyses/<slug>.md` | Front matter config + prose body |
-| Layout | `_layouts/dynamic-analysis.html` | Shared layout — you don't need to touch this |
+```
+assets/analyses/<slug>/
+  script.js   — all JavaScript for this analysis (stats, UI, chart)
+  style.css   — all CSS specific to this analysis's widget
+  data.json   — the dataset this analysis reads at runtime
+
+_dynamic_analyses/<slug>.md
+              — front matter + prose body (becomes the page at /dynamic/<slug>/)
+```
+
+The layout (`_layouts/dynamic-analysis.html`) automatically loads the right `script.js` and `style.css` based on the page slug. You do not need to touch the layout.
 
 ---
 
-## Step 1 — Prepare your dataset
+## Step 1 — Create the analysis folder
 
-Your data file goes in `assets/data/` and must be valid JSON. The site currently supports the **grades schema** (instructor grade distributions), but any shape of data can work once a matching analysis type is registered.
+Pick a short, lowercase, hyphenated slug for your analysis (e.g. `tuition-trends`). Create its folder:
 
-### Grades schema
+```
+assets/analyses/tuition-trends/
+```
+
+---
+
+## Step 2 — Prepare your dataset
+
+Create `assets/analyses/tuition-trends/data.json`. The shape of this file is entirely up to you — your `script.js` is the only thing that reads it, so design the schema around what your analysis needs.
+
+The existing grade comparison analysis uses this schema as a reference:
 
 ```json
 {
@@ -52,49 +68,74 @@ Your data file goes in `assets/data/` and must be valid JSON. The site currently
 }
 ```
 
-Key rules:
+---
 
-- `n_students`, `avg_gpa`, and `pct_a` are **pre-calculated** and pooled across all terms for that instructor. Do not include per-semester breakdowns.
-- `grade_counts` uses whole-letter grades only: `A`, `B`, `C`, `D`, `F`. No plus/minus.
-- `excluded` stores withdrawal (`W`), satisfactory (`S`), and no-credit (`NCR`) grades. These are **not** counted in `n_students` or any statistical calculation.
-- `avg_gpa` is the pooled mean GPA. `pct_a` is `A_count / n_students`.
-- See `assets/data/README-grades-schema.md` for the full specification and field definitions.
+## Step 3 — Write `script.js`
 
-Name your file something descriptive, e.g. `grades-econ-2025.json`. Place it at:
+Create `assets/analyses/tuition-trends/script.js`. This file must be a single self-contained IIFE — no external dependencies other than Chart.js (which the layout loads for you before your script runs).
 
+The layout passes your asset folder's URL as a `data-base` attribute on the `<script>` tag. Capture it at the very top of your IIFE so your script can fetch `data.json`:
+
+```js
+(function () {
+  'use strict';
+
+  var BASE = document.currentScript.dataset.base;
+  // BASE ends with a slash, e.g. "/esuh/assets/analyses/tuition-trends/"
+
+  // ... your stats, chart, and UI code ...
+
+  document.addEventListener('DOMContentLoaded', function () {
+    fetch(BASE + 'data.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        buildUI(data);
+      })
+      .catch(function (err) {
+        var root = document.getElementById('analysis-root');
+        if (root) root.innerHTML = '<p class="ae-error">Error: ' + err.message + '</p>';
+      });
+  });
+
+}());
 ```
-assets/data/grades-econ-2025.json
-```
+
+Your script should mount everything into `<div id="analysis-root">`, which the layout provides. Use `document.getElementById('analysis-root')` as your mount point.
+
+**Important:** `document.currentScript` is only available synchronously during script parsing. Capture `BASE` as the first line of the IIFE — never inside a `DOMContentLoaded` handler or other callback.
 
 ---
 
-## Step 2 — Create the analysis file
+## Step 4 — Write `style.css`
 
-Create a Markdown file in `_dynamic_analyses/`. The filename becomes the URL slug:
+Create `assets/analyses/tuition-trends/style.css` with all CSS classes your widget needs. CSS custom properties from the site's design system (`var(--primary-color)`, `var(--font-sans)`, etc.) are defined in the global stylesheet and are available here without duplication.
 
-```
-_dynamic_analyses/my-analysis.md  →  /dynamic/my-analysis/
-```
+See `assets/analyses/grade-comparison/style.css` for a complete example.
 
-### Required front matter
+---
+
+## Step 5 — Create the analysis page
+
+Create `_dynamic_analyses/tuition-trends.md`. The filename slug must match your folder name exactly.
 
 ```yaml
 ---
-title: "Your Analysis Title"
+title: "UH Tuition Trends"
 subtitle: "One-line description shown under the title"
 layout: dynamic-analysis
-dataset: grades-econ-2025        # filename without .json
-topic: Education                 # shows in research filter
+topic: Education
+dynamic: true
 excerpt: "One or two sentences shown on the research listing card."
-date: 2026-04-01
-author: your-name                # lowercase, matches your team page entry
-ui:
-  min_students: 20               # hide instructors with fewer students than this
-analysis:
-  type: group_comparison         # the registered analysis type to use
-  group_by: instructor
+date: 2026-05-01
+author: your-name
 ---
 ```
+
+After the front matter, write 2–4 paragraphs of prose in Markdown. This appears above the widget and should explain:
+
+1. What the tool does and how to use it
+2. How to interpret the output
+3. What the tool cannot tell you — confounders, limitations, caveats
 
 ### Front matter fields
 
@@ -103,25 +144,15 @@ analysis:
 | `title` | yes | Page title and card heading |
 | `subtitle` | no | Italic subtitle below the title |
 | `layout` | yes | Must be `dynamic-analysis` |
-| `dataset` | yes | Filename in `assets/data/` without `.json` |
 | `topic` | yes | Topic tag (used in the research filter) |
+| `dynamic` | yes | Must be `true` — enables the Dynamic badge on listing pages |
 | `excerpt` | yes | Short description for the research listing card |
 | `date` | yes | Publication date in `YYYY-MM-DD` |
-| `author` | no | Lowercase team member name |
-| `ui.min_students` | no | Minimum n to show an instructor (default: 20) |
-| `analysis.type` | yes | Which registered analysis engine to use |
-
-### Prose body
-
-After the front matter, write 2–4 paragraphs of background prose in Markdown. This appears above the interactive widget and should explain:
-
-1. What the tool does and how to use it
-2. How to interpret the statistical output (p-value, effect size, etc.)
-3. What the tool *cannot* tell you — confounders, limitations, caveats
+| `author` | no | Lowercase team member name (links to team page) |
 
 ---
 
-## Step 3 — Test locally
+## Step 6 — Test locally
 
 If you have Ruby and Jekyll installed:
 
@@ -129,57 +160,34 @@ If you have Ruby and Jekyll installed:
 bundle exec jekyll serve
 ```
 
-Then open `http://localhost:4000/esuh/dynamic/my-analysis/` in your browser. Open the browser console (F12) to see any JavaScript errors. Make sure:
+Open `http://localhost:4000/esuh/dynamic/tuition-trends/` in your browser. Open the browser console (F12) to check for JavaScript errors. Verify:
 
-- The dropdowns populate from your JSON
-- Selecting two instructors enables the Run Comparison button
-- Clicking Run Comparison produces a chart and interpretation
+- `data.json` loads (check the Network tab)
+- The widget renders correctly
+- The analysis runs and produces output
 
-If you don't have Jekyll installed, you can push the branch and check the GitHub Pages preview.
+If you don't have Jekyll installed, push your branch and check the GitHub Pages preview.
 
 ---
 
-## Step 4 — Push and open a pull request
+## Step 7 — Push and open a pull request
 
 ```bash
-git add assets/data/my-dataset.json _dynamic_analyses/my-analysis.md
-git commit -m "Add [title] dynamic analysis"
+git add assets/analyses/tuition-trends/ _dynamic_analyses/tuition-trends.md
+git commit -m "Add tuition trends dynamic analysis"
 git push origin your-branch-name
 ```
 
-Open a pull request against `main`. The site will rebuild automatically on GitHub Pages once merged.
-
----
-
-## Adding a new analysis type
-
-If your analysis needs different controls or a different statistical method, you can register a new type in `assets/js/analysis-engine.js`. Add it to the `types` registry object:
-
-```js
-AnalysisEngine.types.my_new_type = {
-  load: function(data, config, selections) {
-    // return processed data for the selected context
-  },
-  run: function(processedData, selections) {
-    // run the statistical test, return a results object
-  },
-  render: function(results, uiConfig) {
-    // call a chart function and/or interpretations function
-  }
-};
-```
-
-Then set `analysis.type: my_new_type` in your analysis file's front matter. If your analysis needs different UI controls (different dropdowns, sliders, etc.), you'll also need to update the `buildUI` function in `analysis-engine.js` to conditionally build the right controls based on `ANALYSIS_CONFIG.type`.
-
-For charts, add a new file under `assets/js/charts/` and load it from `_layouts/dynamic-analysis.html` — or open an issue and ask for help.
+Open a pull request against `main`. The site rebuilds automatically on GitHub Pages once merged.
 
 ---
 
 ## Quick checklist
 
-- [ ] Dataset file placed at `assets/data/<name>.json`
-- [ ] Dataset validates against the schema (open it in a JSON validator)
-- [ ] Analysis file at `_dynamic_analyses/<slug>.md` with all required front matter
-- [ ] Prose body explains the tool, how to read results, and limitations
-- [ ] Tested locally or in a preview deployment — dropdowns populate, comparison runs
+- [ ] `assets/analyses/<slug>/data.json` created with your dataset
+- [ ] `assets/analyses/<slug>/script.js` — self-contained IIFE, fetches `BASE + 'data.json'`, mounts to `#analysis-root`
+- [ ] `assets/analyses/<slug>/style.css` — analysis-specific widget styles
+- [ ] `_dynamic_analyses/<slug>.md` — front matter includes `dynamic: true`, prose body explains the tool
+- [ ] Slug in `_dynamic_analyses/<slug>.md` matches the folder name in `assets/analyses/<slug>/`
+- [ ] Tested locally or in a preview — widget loads, analysis runs
 - [ ] Pull request opened against `main`

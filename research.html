@@ -30,7 +30,7 @@ subtitle: Browse all research papers and working papers
        data-author="{{ item.author | downcase }}">
     <h3>
       <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-      {% if item.analysis %}<span class="dynamic-badge">Dynamic</span>{% endif %}
+      {% if item.dynamic %}<span class="dynamic-badge">Dynamic</span>{% endif %}
     </h3>
 
     {% if item.subtitle %}

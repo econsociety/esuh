@@ -2,11 +2,7 @@
 layout: default
 ---
 
-<script>
-  window.ANALYSIS_CONFIG = {{ page.analysis | jsonify }};
-  window.UI_CONFIG       = {{ page.ui       | jsonify }};
-  window.DATASET_PATH    = "{{ site.baseurl }}/assets/data/{{ page.dataset }}.json";
-</script>
+<link rel="stylesheet" href="{{ '/assets/analyses/' | append: page.slug | append: '/style.css' | relative_url }}">
 
 <div class="container">
   <article class="dynamic-analysis-page">
@@ -37,7 +33,7 @@ layout: default
       {{ content }}
     </div>
 
-    <div id="analysis-widget" class="analysis-widget">
+    <div id="analysis-root" class="analysis-widget">
       <p class="widget-loading">Loading analysis tool&hellip;</p>
     </div>
 
@@ -45,6 +41,7 @@ layout: default
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="{{ '/assets/js/analysis-engine.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/interpretations.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/charts/grouped-bar.js' | relative_url }}"></script>
+<script
+  data-base="{{ '/assets/analyses/' | append: page.slug | append: '/' | relative_url }}"
+  src="{{ '/assets/analyses/' | append: page.slug | append: '/script.js' | relative_url }}">
+</script>

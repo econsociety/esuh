@@ -2,17 +2,12 @@
 title: "Instructor Grade Comparison"
 subtitle: "Compare grade distributions between two instructors for any UH course"
 layout: dynamic-analysis
-dataset: grades-sample
 topic: Education
+dynamic: true
 excerpt: "Interactively compare how two instructors grade in the same course,
 with hypothesis testing to determine if differences are statistically significant."
 date: 2026-04-01
 author: isaac
-ui:
-  min_students: 20
-analysis:
-  type: group_comparison
-  group_by: instructor
 ---
 
 This tool lets you compare the grade distributions of two instructors teaching the same course at the University of Houston. Select a subject, course number, and two instructors from the dropdowns, then choose a metric — average GPA or the percentage of students receiving an A — and click **Run Comparison**. The chart will show side-by-side bar plots of letter-grade distributions, along with the results of a Welch's two-sample *t*-test that tests whether the difference between the two instructors is statistically significant.

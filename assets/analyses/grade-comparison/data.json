@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "subjects": ["ECON", "MATH"],
+    "last_updated": "2025-12"
+  },
+  "courses": {
+    "ECON 2301": {
+      "title": "Principles of Macroeconomics",
+      "subject": "ECON",
+      "catalog": "2301",
+      "instructors": {
+        "Anderson, Carol B": {
+          "n_students": 287,
+          "n_sections": 12,
+          "avg_gpa": 2.85,
+          "pct_a": 0.167,
+          "grade_counts": {
+            "A": 48, "B": 92, "C": 98, "D": 32, "F": 17
+          },
+          "excluded": {
+            "W": 5, "S": 0, "NCR": 2
+          }
+        },
+        "Martinez, Roberto L": {
+          "n_students": 341,
+          "n_sections": 14,
+          "avg_gpa": 2.53,
+          "pct_a": 0.094,
+          "grade_counts": {
+            "A": 32, "B": 98, "C": 121, "D": 57, "F": 33
+          },
+          "excluded": {
+            "W": 8, "S": 0, "NCR": 0
+          }
+        },
+        "Patel, Divya R": {
+          "n_students": 198,
+          "n_sections": 8,
+          "avg_gpa": 3.01,
+          "pct_a": 0.212,
+          "grade_counts": {
+            "A": 42, "B": 71, "C": 58, "D": 18, "F": 9
+          },
+          "excluded": {
+            "W": 3, "S": 1, "NCR": 0
+          }
+        },
+        "Thompson, James K": {
+          "n_students": 156,
+          "n_sections": 6,
+          "avg_gpa": 2.68,
+          "pct_a": 0.128,
+          "grade_counts": {
+            "A": 20, "B": 48, "C": 56, "D": 21, "F": 11
+          },
+          "excluded": {
+            "W": 2, "S": 0, "NCR": 1
+          }
+        }
+      }
+    },
+    "ECON 3334": {
+      "title": "Introduction to Econometrics",
+      "subject": "ECON",
+      "catalog": "3334",
+      "instructors": {
+        "Kim, Sarah H": {
+          "n_students": 143,
+          "n_sections": 7,
+          "avg_gpa": 2.91,
+          "pct_a": 0.189,
+          "grade_counts": {
+            "A": 27, "B": 51, "C": 42, "D": 15, "F": 8
+          },
+          "excluded": {
+            "W": 4, "S": 0, "NCR": 0
+          }
+        },
+        "Chen, Wei P": {
+          "n_students": 119,
+          "n_sections": 6,
+          "avg_gpa": 2.74,
+          "pct_a": 0.143,
+          "grade_counts": {
+            "A": 17, "B": 38, "C": 44, "D": 14, "F": 6
+          },
+          "excluded": {
+            "W": 2, "S": 0, "NCR": 1
+          }
+        },
+        "Williams, Marcus D": {
+          "n_students": 88,
+          "n_sections": 4,
+          "avg_gpa": 3.14,
+          "pct_a": 0.250,
+          "grade_counts": {
+            "A": 22, "B": 32, "C": 24, "D": 7, "F": 3
+          },
+          "excluded": {
+            "W": 1, "S": 0, "NCR": 0
+          }
+        }
+      }
+    },
+    "MATH 2413": {
+      "title": "Calculus I",
+      "subject": "MATH",
+      "catalog": "2413",
+      "instructors": {
+        "Nguyen, Anh T": {
+          "n_students": 412,
+          "n_sections": 16,
+          "avg_gpa": 2.31,
+          "pct_a": 0.087,
+          "grade_counts": {
+            "A": 36, "B": 112, "C": 148, "D": 72, "F": 44
+          },
+          "excluded": {
+            "W": 18, "S": 0, "NCR": 3
+          }
+        },
+        "Rodriguez, Elena M": {
+          "n_students": 378,
+          "n_sections": 15,
+          "avg_gpa": 2.48,
+          "pct_a": 0.111,
+          "grade_counts": {
+            "A": 42, "B": 108, "C": 132, "D": 61, "F": 35
+          },
+          "excluded": {
+            "W": 14, "S": 0, "NCR": 2
+          }
+        },
+        "Okafor, Emeka J": {
+          "n_students": 224,
+          "n_sections": 9,
+          "avg_gpa": 2.62,
+          "pct_a": 0.134,
+          "grade_counts": {
+            "A": 30, "B": 72, "C": 78, "D": 31, "F": 13
+          },
+          "excluded": {
+            "W": 7, "S": 0, "NCR": 1
+          }
+        }
+      }
+    }
+  }
+}
