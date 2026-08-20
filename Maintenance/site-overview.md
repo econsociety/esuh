@@ -134,8 +134,8 @@ See [`dynamic-analyses.md`](./dynamic-analyses.md) for the full walkthrough.
 `assets/css/main.css` defines CSS custom properties (variables) in the `:root` block:
 
 ```css
---primary-color: #C8102E   /* UH red */
---accent-color: #B8904D    /* gold */
+--primary-color: #D6495A   /* ESUH pink-red */
+--accent-color: #1a1a1a    /* black */
 --font-sans: 'Inter', sans-serif
 --content-width: 740px
 /* ...etc */
