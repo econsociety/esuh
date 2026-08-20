@@ -4,7 +4,7 @@
   // ── Configuration ────────────────────────────────────────────────
   var BASE = document.currentScript.dataset.base;
   var MIN_STUDENTS = 20;
-  var COLOR_A = '#C8102E'; // UH red — Instructor A
+  var COLOR_A = '#D6495A'; // ESUH pink-red — Instructor A
   var COLOR_B = '#5B8DB8'; // Muted blue — Instructor B
 
   // ── Math helpers ─────────────────────────────────────────────────

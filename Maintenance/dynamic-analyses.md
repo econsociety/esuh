@@ -144,8 +144,8 @@ The site's global CSS variables are always available (defined in `assets/css/mai
 
 ```css
 /* Use these — do not hardcode color values */
-var(--primary-color)    /* #C8102E UH red */
-var(--accent-color)     /* #B8904D gold */
+var(--primary-color)    /* #D6495A ESUH pink-red */
+var(--accent-color)     /* #1a1a1a black */
 var(--text-color)       /* main text */
 var(--text-secondary)   /* muted text */
 var(--light-gray)       /* backgrounds */

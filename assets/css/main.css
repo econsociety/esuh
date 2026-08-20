@@ -6,13 +6,13 @@
 }
 
 :root {
-  --primary-color: #C8102E;
-  --primary-dark: #A00D24;
-  --primary-light: #E31837;
+  --primary-color: #D6495A;
+  --primary-dark: #B8394A;
+  --primary-light: #E37888;
   --secondary-color: #5A5A5A;
-  --accent-color: #B8904D;
-  --accent-dark: #9A7840;
-  --accent-light: #D4AF69;
+  --accent-color: #1a1a1a;
+  --accent-dark: #000000;
+  --accent-light: #4d4d4d;
   --text-color: #1a1a1a;
   --text-secondary: #5A5A5A;
   --light-gray: #f8f9fa;

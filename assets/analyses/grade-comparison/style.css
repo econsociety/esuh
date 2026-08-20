@@ -78,7 +78,7 @@
 .ae-select:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(184, 144, 77, 0.15);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.15);
 }
 
 .ae-select:disabled {
